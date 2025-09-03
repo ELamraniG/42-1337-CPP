@@ -13,15 +13,17 @@ int	main(int ac, char **av)
 	}
 	int i = 1;
 	int j;
+	std::string arg;
 	while (av[i])
 	{
 		j = 0;
-		while (av[i][j])
+		arg = av[i];
+		while (arg[j])
 		{
-				av[i][j] = std::toupper(av[i][j]);
+			arg[j] = std::toupper(arg[j]);
 			j++;
 		}
-		std::cout<< av[i];
+		std::cout<< arg;
 		i++;
 	}
 	std::cout<<std::endl;

@@ -6,7 +6,15 @@ class PhoneBook
 {
 	private:
 		Contacts cts[8];
+		int counter;
 	public:
-	void add_contact(Contacts ct,int count);
+	PhoneBook()
+	{
+		counter = 0;
+	};
+	void add_contact(Contacts ct);
+	void increase_counter();
+	int get_counter();
+	void print_contacts();
 };
 #endif

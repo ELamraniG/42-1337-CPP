@@ -1,13 +1,83 @@
 #include "Contacts.hpp"
 #include <iostream>
-//◦ The contact fields are: first name, last name, nickname, phone number, and
-//darkest secret. A saved contact can’t have empty fields.
-	
-	void Contacts::set_first_name(std::string s)
+
+void Contacts::set_first_name(std::string s)
+{
+	first_name = s;
+}
+std::string Contacts::get_first_name()
+{
+	return first_name;
+}
+
+void Contacts::set_last_name(std::string s)
+{
+	last_name = s;
+}
+std::string Contacts::get_last_name()
+{
+	return last_name;
+}
+
+void Contacts::set_nick_name(std::string s)
+{
+	nick_name = s;
+}
+std::string Contacts::get_nick_name()
+{
+	return nick_name;
+}
+
+void Contacts::set_phone_number(std::string s)
+{
+	phone_number = s;
+}
+std::string Contacts::get_phone_number()
+{
+	return phone_number;
+}
+
+void Contacts::set_darkest_secret(std::string s)
+{
+	darkest_secret = s;
+}
+std::string Contacts::get_darkest_secret()
+{
+	return darkest_secret;
+}
+
+void Contacts::set_index(int i)
+{
+	idx = i;
+}
+int Contacts::get_index()
+{
+	return idx;
+}
+
+void Contacts::print_contact_helper(std::string s)
+{
+	if (s.size() < 10)
 	{
-		first_name = s;
+		for(int i = 0; i < 10 - s.size();i++)
+			std::cout<<" ";
 	}
-	std::string Contacts::get_first_name()
+	else if (s.size() > 10)
 	{
-		return first_name;
+		s = s.substr(0,9);
+		s.append(".");
 	}
+	std::cout<<s;
+}
+
+void Contacts::print_contact(){
+	print_contact_helper(get_first_name());
+	std::cout<<"|";
+	print_contact_helper(get_last_name());
+	std::cout<<"|";
+	print_contact_helper(get_nick_name());
+	std::cout<<"|";
+	print_contact_helper(get_darkest_secret());
+	std::cout<<this->get_index();
+	std::cout<<std::endl;
+}
