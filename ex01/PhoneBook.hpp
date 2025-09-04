@@ -16,5 +16,7 @@ class PhoneBook
 	void increase_counter();
 	int get_counter();
 	void print_contacts();
+	bool search_for();
 };
+
 #endif

@@ -71,13 +71,13 @@ void Contacts::print_contact_helper(std::string s)
 }
 
 void Contacts::print_contact(){
+	std::cout<<"         ";
+	std::cout<<idx;
+	std::cout<<"|";
 	print_contact_helper(get_first_name());
 	std::cout<<"|";
 	print_contact_helper(get_last_name());
 	std::cout<<"|";
 	print_contact_helper(get_nick_name());
-	std::cout<<"|";
-	print_contact_helper(get_darkest_secret());
-	std::cout<<this->get_index();
 	std::cout<<std::endl;
 }
