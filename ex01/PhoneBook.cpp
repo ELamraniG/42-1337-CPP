@@ -62,4 +62,4 @@ bool PhoneBook::search_for()
 PhoneBook::PhoneBook()
 {
 	counter = 0;
-};
+}
