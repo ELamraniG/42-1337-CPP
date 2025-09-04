@@ -53,10 +53,14 @@ int main(void)
 	std::string s;
 	PhoneBook booke;
 	Contacts cont;
+	int flag = 0;
 	while (1337)
 	{
+		if (flag == 0)
+			std::cout<<"enter ADD to add a new contact | SEARCH to search for a contact | EXIT to exit the program"<<std::endl;
 		if (!std::getline(std::cin, s))
 			break;
+		flag = 0;
 		if (s.compare("ADD") == 0)
 		{
 			if (handle_add(&cont) == false)
@@ -72,6 +76,8 @@ int main(void)
 		}
 		else if (s.compare("EXIT") == 0)
 			return 0;
+		else if (s.empty())
+			flag = 1;
 	}
 	return 0;
 }

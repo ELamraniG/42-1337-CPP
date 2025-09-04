@@ -35,15 +35,15 @@ bool PhoneBook::search_for()
 			return false;
 	if (s.empty())
 	{
-		std::cout<<"index can't be empty"<<std::endl;
+		std::cout<<"index can't be empty try again: "<<std::endl;
 		return search_for();
 	}
 	for (int i = 0; i < s.size();i++)
 	{
 		if (!std::isdigit(s[i]))
 		{
-			std::cout<<"the index has to be a valid number"<<std::endl;
-			return true;
+			std::cout<<"the index has to be a valid number try again: "<<std::endl;
+			return search_for();
 		}
 	}
 	int index = std::stoi(s);
