@@ -66,6 +66,9 @@ int main(void)
 		else if (s.compare("SEARCH") == 0)
 		{
 			booke.print_contacts();
+			std::cout<<"enter the index you want to search for"<<std::endl;
+			if (booke.search_for() == false)
+				return 0;
 		}
 		else if (s.compare("EXIT") == 0)
 			return 0;
