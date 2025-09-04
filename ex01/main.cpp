@@ -11,13 +11,31 @@ std::string get_line_wraper(std::string message)
 		std::cout<<"line cannot be empty please enter a valid value:"<<std::endl;
 		return get_line_wraper(message);
 	}
+	if (message.compare("enter your phone number:") == 0)
+	{
+		for(int i = 0; i < s.size();i++)
+		{
+			if (!std::isdigit(s[i]))
+			{
+				std::cout<<"number has to contain only numbers enter again:"<<std::endl;
+				return get_line_wraper(message);
+			}
+		}
+	}
+	for(int i = 0; i < s.size();i++)
+	{
+		if (std::isspace(s[i]))
+		{
+			std::cout<<"no spaces allowed in the input enter again:"<<std::endl;
+			return get_line_wraper(message);
+		}	
+	}
 	return s;
 }
 
 bool handle_add(Contacts *cont)
 {
 	std::string s;
-
 	s = get_line_wraper("enter your first name:");
 	if (s.empty())
 		return false;
