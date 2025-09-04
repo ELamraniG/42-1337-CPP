@@ -59,7 +59,6 @@ bool PhoneBook::search_for()
 	std::cout<<"darkest secret: "<<cts[index].get_darkest_secret()<<std::endl;
 	return true;
 }
-PhoneBook::PhoneBook()
+PhoneBook::PhoneBook() : counter(0)
 {
-	counter = 0;
 }
