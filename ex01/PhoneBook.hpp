@@ -8,10 +8,7 @@ class PhoneBook
 		Contacts cts[8];
 		int counter;
 	public:
-	PhoneBook()
-	{
-		counter = 0;
-	};
+	PhoneBook();
 	void add_contact(Contacts ct);
 	void increase_counter();
 	int get_counter();
