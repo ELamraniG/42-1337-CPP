@@ -7,13 +7,14 @@ class PhoneBook
 	private:
 		Contacts cts[8];
 		int counter;
+		void increase_counter();
+		int get_counter();
 	public:
-	PhoneBook();
-	void add_contact(Contacts ct);
-	void increase_counter();
-	int get_counter();
-	void print_contacts();
-	bool search_for();
+		PhoneBook();
+		void print_contacts();
+		void add_contact(Contacts ct);
+		bool search_for();
+
 };
 
 #endif
