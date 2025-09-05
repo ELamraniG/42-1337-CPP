@@ -17,7 +17,7 @@ std::string get_line_wraper(std::string message)
 		{
 			if (!std::isdigit(s[i]))
 			{
-				std::cout<<"number has to contain only numbers enter again:"<<std::endl;
+				std::cout<<"number has to contain only numbers:"<<std::endl;
 				return get_line_wraper(message);
 			}
 		}
@@ -26,7 +26,7 @@ std::string get_line_wraper(std::string message)
 	{
 		if (std::isspace(s[i]))
 		{
-			std::cout<<"no spaces allowed in the input enter again:"<<std::endl;
+			std::cout<<"no spaces allowed in the input:"<<std::endl;
 			return get_line_wraper(message);
 		}	
 	}

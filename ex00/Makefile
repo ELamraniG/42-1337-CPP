@@ -1,7 +1,7 @@
 FLAGS =  -Wall -Wextra -Werror -std=c++98
 CPP = c++
-NAME = ex00
-SRC = ex00.cpp
+NAME = megaphone
+SRC = megaphone.cpp
 OBJ = $(SRC:%.cpp=%.o)
 ALL : $(NAME)
 
