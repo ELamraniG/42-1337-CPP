@@ -1,6 +1,6 @@
 FLAGS = -Wall -Wextra -Werror -std=c++98
 CPP = c++
-NAME = ex01
+NAME = phonebook
 SRC = Contacts.cpp PhoneBook.cpp main.cpp
 OBJ = $(SRC:%.cpp=%.o)
 ALL : $(NAME)

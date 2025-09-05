@@ -1,5 +1,5 @@
 FLAGS = -Wall -Wextra -Werror -std=c++98
-NAME = ex02
+NAME = account
 CPP = c++
 SRC = Account.cpp tests.cpp
 OBJ = $(SRC:%.cpp=%.o)
