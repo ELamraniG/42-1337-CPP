@@ -1,3 +1,17 @@
-FLAGS: -Wall -Wextra -Werror -std=c++98
+FLAGS =  -Wall -Wextra -Werror -std=c++98
+CPP = c++
+NAME = ex00
+SRC = ex00.cpp
+OBJ = $(SRC:%.cpp=%.o)
+ALL : $(NAME)
 
-ALL : 
+$(NAME) : $(OBJ)
+	$(CPP) $(FLAGS) $(OBJ) -o $(NAME)
+%.o : %.cpp
+	$(CPP) $(FLAGS) -c $< -o $@ 
+
+clean :
+	rm -rf $(OBJ)
+fclean : clean
+	rm -rf $(NAME)
+re : fclean ALL

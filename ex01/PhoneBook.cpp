@@ -21,6 +21,7 @@ int PhoneBook::get_counter()
 	return (counter);
 }
 
+
 void PhoneBook::print_contacts()
 {
 	std::cout<<"     index|first name| last name|  nickname"<<std::endl;
@@ -38,7 +39,7 @@ bool PhoneBook::search_for()
 		std::cout<<"index can't be empty try again: "<<std::endl;
 		return search_for();
 	}
-	for (int i = 0; i < s.size();i++)
+	for (int i = 0; i < (int)s.size();i++)
 	{
 		if (!std::isdigit(s[i]))
 		{

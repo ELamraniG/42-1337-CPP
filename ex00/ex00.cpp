@@ -1,9 +1,5 @@
 #include <iostream>
 
-//read about std and namespaces
-//read about strings in c++
-// read about cout and endl
-
 int	main(int ac, char **av)
 {
 	if (ac == 1)
@@ -29,3 +25,5 @@ int	main(int ac, char **av)
 	std::cout<<std::endl;
 	return (0);
 }
+
+
