@@ -13,7 +13,7 @@ std::string get_line_wraper(std::string message)
 	}
 	if (message.compare("enter your phone number:") == 0)
 	{
-		for(int i = 0; i < s.size();i++)
+		for(int i = 0; i < (int)s.size();i++)
 		{
 			if (!std::isdigit(s[i]))
 			{
@@ -22,7 +22,7 @@ std::string get_line_wraper(std::string message)
 			}
 		}
 	}
-	for(int i = 0; i < s.size();i++)
+	for(int i = 0; i < (int)s.size();i++)
 	{
 		if (std::isspace(s[i]))
 		{

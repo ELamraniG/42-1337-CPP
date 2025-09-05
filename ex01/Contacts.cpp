@@ -59,7 +59,7 @@ void Contacts::print_contact_helper(std::string s)
 {
 	if (s.size() < 10)
 	{
-		for(int i = 0; i < 10 - s.size();i++)
+		for(int i = 0; i < 10 - (int)s.size();i++)
 			std::cout<<" ";
 	}
 	else if (s.size() > 10)
