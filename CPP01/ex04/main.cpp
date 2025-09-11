@@ -23,14 +23,14 @@ int main(int ac, char **av)
         return 0;
     }
     std::string replace = filename + ".replace";
-    std::ifstream input(filename);
+    std::ifstream input(filename.c_str());
     if (input.fail() == true)
     {
         std::cout<<"couldn't open file: "<<filename<<std::endl;
         input.close();
         return 0;
     }
-    std::ofstream output(replace);
+    std::ofstream output(replace.c_str());
     if (output.fail() == true)
     {
         std::cout<<"couldn't open file: "<<replace<<std::endl;
