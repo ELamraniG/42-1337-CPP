@@ -4,12 +4,12 @@ OBJ = $(SRC:%.cpp=%.o)
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-ALL : $(NAME)
+all : $(NAME)
 
 $(NAME) : $(OBJ)
 	$(CC) $(FLAGS) $(OBJ) -o $(NAME)
-%.o : %.c Zombie.hpp
-	$(CC) $(FLAGS) $< -o $@
+%.o : %.cpp Zombie.hpp
+	$(CC) $(FLAGS) -c $< -o $@
 
 clean :
 	rm -rf $(OBJ)

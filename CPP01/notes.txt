@@ -1,1 +1,2 @@
-Makefiles
+fix 07 make it taje from command line like in subject
+also edit when there is somewring

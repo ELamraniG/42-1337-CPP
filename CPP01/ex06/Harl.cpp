@@ -38,12 +38,16 @@ void Harl::complain( std::string level )
             std::cout<<"only 4 levels available : DEBUG - INFO - WARNING - ERROR"<<std::endl;
             break;
         case 0:
-           ( this->*f[0])();
+           (this->*f[0])();
+             // fall through
         case 1:
-            ( this->*f[1])();
+            (this->*f[1])();
+              // fall through
         case 2:
-            ( this->*f[2])();
+            (this->*f[2])();
+              // fall through
         case 3:
-            ( this->*f[3])();
+            (this->*f[3])();
+              // fall through
     }
 }
