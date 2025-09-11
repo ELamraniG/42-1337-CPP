@@ -2,9 +2,6 @@
 
 int main()
 {
-
-    int *a[4]; 
-    a[0] = (int * )malloc(sizeof(int) * 4);
     Harl harlito;
     harlito.complain("DEBUG");
     harlito.complain("INFO");
