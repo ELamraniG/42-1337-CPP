@@ -1,3 +1,1 @@
-read more about pragma
-make a a reference to follow the other object
-make b ponter to easily set it whenver u want
+Makefiles
