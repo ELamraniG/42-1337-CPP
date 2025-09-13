@@ -6,11 +6,11 @@ void Harl::debug( void)
 }
 void Harl::info( void)
 {
-    std::cout<<"I cannot believe adding extra bacon costs more money. You didn’t putenough bacon in my burger! If you did, I wouldn’t be asking for more!"<<std::endl;
+    std::cout<<"I cannot believe adding extra bacon costs more money."<<std::endl<<"You didn’t putenough bacon in my burger! If you did, I wouldn’t be asking for more!"<<std::endl;
 }
 void Harl::warning( void)
 {
-    std::cout<<"I think I deserve to have some extra bacon for free. I’ve been coming for years, whereas you started working here just last month."<<std::endl;
+    std::cout<<"I think I deserve to have some extra bacon for free."<<std::endl<<"I’ve been coming for years, whereas you started working here just last month."<<std::endl;
 }
 void Harl::error( void)
 {
@@ -35,19 +35,27 @@ void Harl::complain( std::string level )
     switch (i)
     {
         case 4:
-            std::cout<<"only 4 levels available : DEBUG - INFO - WARNING - ERROR"<<std::endl;
+            std::cout<<"[ Probably complaining about insignificant problems ]"<<std::endl;
             break;
         case 0:
+            std::cout<<"[ DEBUG ]"<<std::endl;
            (this->*f[0])();
-             // fall through
+           std::cout<<std::endl;
+           // fall through
         case 1:
-            (this->*f[1])();
-              // fall through
+           std::cout<<"[ INFO ]"<<std::endl;
+           (this->*f[1])();
+           std::cout<<std::endl;
+           // fall through
         case 2:
-            (this->*f[2])();
-              // fall through
+           std::cout<<"[ WARNING ]"<<std::endl;
+           (this->*f[2])();
+           std::cout<<std::endl;
+           // fall through
         case 3:
+            std::cout<<"[ ERROR ]"<<std::endl;
             (this->*f[3])();
-              // fall through
+            std::cout<<std::endl;
+            break;
     }
 }

@@ -1,17 +1,13 @@
 #include "Harl.hpp"
 
-int main()
+int main(int ac,char **av)
 {
+    if (ac != 2)
+    {
+         std::cout<<"only 4 levels available : DEBUG - INFO - WARNING - ERROR"<<std::endl;
+        return 0;
+    }
     Harl harlito;
-    harlito.complain("DEBUG");
-    std::cout<<"---------------------------"<<std::endl;
-    harlito.complain("INFO");
-    std::cout<<"---------------------------"<<std::endl;
-    harlito.complain("WARNING");
-    std::cout<<"---------------------------"<<std::endl;
-    harlito.complain("ERROR");
-    std::cout<<"---------------------------"<<std::endl;
-    harlito.complain("just bs");
-    std::cout<<"---------------------------"<<std::endl;
+    harlito.complain(av[1]);
     return 0;
 }
