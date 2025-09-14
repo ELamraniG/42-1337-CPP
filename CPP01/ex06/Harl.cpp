@@ -41,17 +41,14 @@ void Harl::complain( std::string level )
             std::cout<<"[ DEBUG ]"<<std::endl;
            (this->*f[0])();
            std::cout<<std::endl;
-           // fall through
         case 1:
            std::cout<<"[ INFO ]"<<std::endl;
            (this->*f[1])();
            std::cout<<std::endl;
-           // fall through
         case 2:
            std::cout<<"[ WARNING ]"<<std::endl;
            (this->*f[2])();
            std::cout<<std::endl;
-           // fall through
         case 3:
             std::cout<<"[ ERROR ]"<<std::endl;
             (this->*f[3])();
