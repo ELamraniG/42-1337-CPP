@@ -27,7 +27,7 @@ Fixed::~Fixed()
 	std::cout << "Deconstructor called" << std::endl;
 }
 
-Fixed &Fixed::operator=(const Fixed &fix)
+Fixed &Fixed::operator=(const Fixed &fix) 
 {
 	std::cout << "Copy assignement called" << std::endl;
 	this->_fixed_point = fix.getRawBits();
