@@ -4,12 +4,13 @@
 static float	calculate_the_area(const Point &a, const Point &b,
 		const Point &c)
 {
-	float	AB;
-	float	AC;
+	float	area;
 
-	AB = b.get_x() - a.get_x() + b.get_y() - a.get_y();
-	AC = c.get_x() - a.get_x() + c.get_y() - a.get_y();
-	return ((AB - AC) / 2);
+	area = ((b.get_x() - a.get_x()) * (c.get_y() - a.get_y()) - (c.get_x()
+				- a.get_x()) * (b.get_y() - a.get_y())) / 2.0f;
+	if (area < 0)
+		return -area;
+	return (area);
 }
 bool	bsp(Point const a, Point const b, Point const c, Point const point)
 {
@@ -18,10 +19,9 @@ bool	bsp(Point const a, Point const b, Point const c, Point const point)
 	float triangle_area_3 = calculate_the_area(c, b, point);
 
 	float our_area = calculate_the_area(a, b, c);
-
 	if (triangle_area_1 + triangle_area_2 + triangle_area_3 != our_area)
 		return (false);
-
-	else
-		return (true);
+	if (!triangle_area_1 || !triangle_area_2 || !triangle_area_3)
+		return false;
+	return (true);
 }

@@ -59,33 +59,33 @@ std::ostream &operator<<(std::ostream &o, const Fixed &f)
 	return (o);
 }
 //>, <, >=, <=, ==, and !=.
-bool Fixed::operator>(const Fixed &f1)
+bool Fixed::operator>(const Fixed &f1) const
 {
 	return (this->getRawBits() > f1.getRawBits());
 }
-bool Fixed::operator<(const Fixed &f1)
+bool Fixed::operator<(const Fixed &f1) const
 {
 	return (this->getRawBits() < f1.getRawBits());
 }
-bool Fixed::operator>=(const Fixed &f1)
+bool Fixed::operator>=(const Fixed &f1) const
 {
 	return (this->getRawBits() >= f1.getRawBits());
 }
-bool Fixed::operator<=(const Fixed &f1)
+bool Fixed::operator<=(const Fixed &f1) const
 {
 	return (this->getRawBits() <= f1.getRawBits());
 }
-bool Fixed::operator==(const Fixed &f1)
+bool Fixed::operator==(const Fixed &f1) const
 {
 	return (this->getRawBits() == f1.getRawBits());
 }
 
-bool Fixed::operator!=(const Fixed &f1)
+bool Fixed::operator!=(const Fixed &f1)  const
 {
 	return (this->getRawBits() != f1.getRawBits());
 }
 
-Fixed Fixed::operator+(const Fixed &f1)
+Fixed Fixed::operator+(const Fixed &f1)const
 {
 	Fixed	f;
 
@@ -93,7 +93,7 @@ Fixed Fixed::operator+(const Fixed &f1)
 	return (f);
 }
 
-Fixed Fixed::operator-(const Fixed &f1)
+Fixed Fixed::operator-(const Fixed &f1)const
 {
 	Fixed	f;
 
@@ -101,12 +101,12 @@ Fixed Fixed::operator-(const Fixed &f1)
 	return (f);
 }
 
-Fixed Fixed::operator*(const Fixed &f1)
+Fixed Fixed::operator*(const Fixed &f1)const
 {
 	return (Fixed(this->toFloat() * f1.toFloat()));
 }
 
-Fixed Fixed::operator/(const Fixed &f1)
+Fixed Fixed::operator/(const Fixed &f1)const
 {
 	return (Fixed(this->toFloat() / f1.toFloat()));
 }
