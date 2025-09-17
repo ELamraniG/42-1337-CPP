@@ -149,9 +149,7 @@ Fixed &Fixed::operator--()
 
 Fixed Fixed::operator--(int)
 {
-	Fixed	f;
-
-	f = *this;
+	Fixed f = *this;
 	this->_fixed_point--;
 	return (f);
 }
