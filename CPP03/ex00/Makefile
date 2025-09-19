@@ -1,7 +1,7 @@
 SRC= main.cpp ClapTrap.cpp 
 OBJ=$(SRC:%.cpp=%.o)
 NAME = andopen
-CPPFLAGS = -Wall -Werror -Wextra -std=c++98
+CPPFLAGS = -Wall -Werror -Wextra# -std=c++98
 CC = c++
 
 
