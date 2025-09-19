@@ -27,19 +27,7 @@
         
         void ClapTrap::attack(const std::string &target)
         {
-            if (this->hit_points == 0)
-            {
-                std::cout<<"ClapTrap "<<this->name<<" is dead and cannot attack!"<<std::endl;
-                return;
-            }
-            if (this->energy_points == 0)
-            {
-                std::cout<<"ClapTrap "<<this->name<<" has no energy to attack!"<<std::endl;
-                return;
-            }
-            this->energy_points--;
             std::cout<<"ClapTrap "<<this->name<<" attacks "<<target<<", causing "<<this->attack_damage<<" damage"<<std::endl;
-            std::cout<<"Energy points left: "<<this->energy_points<<std::endl;
         }
         void ClapTrap::takeDamage(unsigned int amount)
         { 
@@ -53,28 +41,15 @@
         }
         void ClapTrap::beRepaired(unsigned int amount)
         {
-            if (this->hit_points == 0)
-            {
-                std::cout<<"ClapTrap "<<this->name<<" is dead and cannot be repaired!"<<std::endl;
-                return;
-            }
-            if (this->energy_points == 0)
-            {
-                std::cout<<"ClapTrap "<<this->name<<" has no energy to repair!"<<std::endl;
-                return;
-            }
-            this->energy_points--;
-            
             if ((unsigned long)this->hit_points + (unsigned long)amount > 4294967295U)
             {
-                std::cout<<"ClapTrap "<<this->name<<" got back "<<amount<<" points (capped at max)"<<std::endl;
+                std::cout<<"ClapTrap "<<this->name<<" got back "<<amount<<" full points"<<std::endl;
                 this->hit_points = 4294967295U;
             }
             else
             { 
-                this->hit_points += amount;  // FIX: Was subtracting instead of adding!
+                this->hit_points += amount;
                 std::cout<<"ClapTrap "<<this->name<<" got back "<<amount<<" points"<<std::endl;
             }
             std::cout<<"new hit points = "<<this->hit_points<<" hit points"<<std::endl;
-            std::cout<<"Energy points left: "<<this->energy_points<<std::endl;
         }
