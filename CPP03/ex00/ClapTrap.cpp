@@ -5,6 +5,10 @@ ClapTrap::ClapTrap() : name("slak"), hit_points(10), energy_points(10),
 {
 	std::cout << "default const called" << std::endl;
 }
+ClapTrap::ClapTrap(std::string name) : name(name), hit_points(10), energy_points(10), attack_damage(0)
+{
+	std::cout << "name const called" << std::endl;
+}
 ClapTrap::~ClapTrap()
 {
 	std::cout << "default deconst called" << std::endl;

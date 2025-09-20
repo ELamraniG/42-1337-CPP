@@ -5,7 +5,7 @@
 int main() {
 	std::cout << "==== EASY TESTS ====" << std::endl;
 	// Easy 1: Default construction
-	ClapTrap ct1;
+	ClapTrap ct1("lopo");
 	// Easy 2: Attack with default stats
 	ct1.attack("Target1");
 	// Easy 3: Take small damage
