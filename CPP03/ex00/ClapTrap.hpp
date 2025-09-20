@@ -10,6 +10,7 @@ class ClapTrap
         unsigned int attack_damage;
     public :
         ClapTrap();
+        ClapTrap(std::string name);
         ~ClapTrap();
         ClapTrap(const ClapTrap &cpy);
         ClapTrap &operator=(const ClapTrap &cpy);
