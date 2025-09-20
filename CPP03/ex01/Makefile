@@ -9,7 +9,7 @@ all : $(NAME)
 
 $(NAME) : $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
-%.o : %.cpp ClapTrap.hpp
+%.o : %.cpp ClapTrap.hpp ScavTrap.hpp
 	$(CC) -c $(CPPFLAGS) $< -o $@
 clean : 
 	rm -rf $(OBJ)

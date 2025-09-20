@@ -1,19 +1,19 @@
 #include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 int main() {
 	ClapTrap lopo0("ae");
 	std::cout<<"------------------\n";
-	ScavTrap lopo1;
+	FragTrap lopo1;
 	std::cout<<"------------------\n";
 	ClapTrap *lopo1ptr = &lopo1; // possible uses func dyal claptrap because of the type
 	std::cout<<"------------------\n";
 	lopo1ptr->attack("kapa");
 	std::cout<<"------------------\n";
-	//ScavTrap *lopo0ptr = &lopo0;// not possible
+	//FragTrap *lopo0ptr = &lopo0;// not possible
 	std::cout<<"------------------\n";
-	ScavTrap lopo2("rapa");
+	FragTrap lopo2("rapa");
 	std::cout<<"------------------\n";
-	lopo2.guardGate();
+	lopo2.highFivesGuys();
 	std::cout<<"------------------\n";
 	lopo2.attack("ropo");
 	std::cout<<"------------------\n";
@@ -23,17 +23,17 @@ int main() {
 	std::cout<<"------------------\n";
 	lopo2.beRepaired(55);
 	std::cout<<"------------------\n";
-	ScavTrap lopo3 = lopo2;
+	FragTrap lopo3 = lopo2;
 	std::cout<<"------------------\n";
-	ScavTrap lopo4(lopo3);
+	FragTrap lopo4(lopo3);
 	std::cout<<"------------------\n";
 	lopo4.attack("keke");
 	std::cout<<"------------------\n";
-	ScavTrap lopo5(lopo1);
+	FragTrap lopo5(lopo1);
 	std::cout<<"------------------\n";
 	lopo5.attack("last");
 	std::cout<<"------------------\n";
-	lopo5.guardGate();
+	lopo5.highFivesGuys();
 	std::cout<<"------------------\n";
 	lopo5.beRepaired(9000);
 	std::cout<<"------------------\n";
