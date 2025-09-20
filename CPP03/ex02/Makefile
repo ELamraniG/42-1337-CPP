@@ -1,4 +1,4 @@
-SRC= main.cpp ClapTrap.cpp ScavTrap.cpp
+SRC= main.cpp ClapTrap.cpp FragTrap.cpp
 OBJ=$(SRC:%.cpp=%.o)
 NAME = andopen
 CPPFLAGS = -Wall -Werror -Wextra -std=c++98
@@ -9,7 +9,7 @@ all : $(NAME)
 
 $(NAME) : $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
-%.o : %.cpp ClapTrap.hpp
+%.o : %.cpp ClapTrap.hpp FragTrap.hpp
 	$(CC) -c $(CPPFLAGS) $< -o $@
 clean : 
 	rm -rf $(OBJ)
