@@ -1,40 +1,39 @@
 #include "FragTrap.hpp"
 int main() {
-	ClapTrap lopo0("ae");
+	ClapTrap test0("first_clap");
 	std::cout<<"------------------\n";
-	FragTrap lopo1;
+	FragTrap test1;
 	std::cout<<"------------------\n";
-	ClapTrap *lopo1ptr = &lopo1; // possible uses func dyal claptrap because of the type
+	ClapTrap *test1ptr = &test1;
 	std::cout<<"------------------\n";
-	lopo1ptr->attack("kapa");
+	test1ptr->attack("kapa");
 	std::cout<<"------------------\n";
-	//FragTrap *lopo0ptr = &lopo0;// not possible
 	std::cout<<"------------------\n";
-	FragTrap lopo2("rapa");
+	FragTrap test2("rapa");
 	std::cout<<"------------------\n";
-	lopo2.highFivesGuys();
+	test2.highFivesGuys();
 	std::cout<<"------------------\n";
-	lopo2.attack("ropo");
+	test2.attack("ropo");
 	std::cout<<"------------------\n";
-	lopo2.beRepaired(55);
+	test2.beRepaired(55);
 	std::cout<<"------------------\n";
-	lopo2.takeDamage(5000);
+	test2.takeDamage(5000);
 	std::cout<<"------------------\n";
-	lopo2.beRepaired(55);
+	test2.beRepaired(55);
 	std::cout<<"------------------\n";
-	FragTrap lopo3 = lopo2;
+	FragTrap test3 = test2;
 	std::cout<<"------------------\n";
-	FragTrap lopo4(lopo3);
+	FragTrap test4(test3);
 	std::cout<<"------------------\n";
-	lopo4.attack("keke");
+	test4.attack("lopo");
 	std::cout<<"------------------\n";
-	FragTrap lopo5(lopo1);
+	FragTrap test5(test1);
 	std::cout<<"------------------\n";
-	lopo5.attack("last");
+	test5.attack("last");
 	std::cout<<"------------------\n";
-	lopo5.highFivesGuys();
+	test5.highFivesGuys();
 	std::cout<<"------------------\n";
-	lopo5.beRepaired(9000);
+	test5.beRepaired(9000);
 	std::cout<<"------------------\n";
 
 	return 0;
