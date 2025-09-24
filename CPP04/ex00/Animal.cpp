@@ -1,0 +1,31 @@
+#include "Animal.hpp"
+
+Animal::Animal() : type("Animal")
+{
+	std::cout << "Animal default const called" << std::endl;
+}
+Animal::~Animal()
+{
+	std::cout << "Animal default deconst called" << std::endl;
+}
+Animal::Animal(const Animal &cpy)
+{
+	std::cout << "Cat cpy const called" << std::endl;
+	*this = cpy;
+}
+Animal &Animal::operator=(const Animal &cpy)
+{
+	std::cout << "Cat cpy assign called" << std::endl;
+	this->type = cpy.type;
+	return (*this);
+}
+
+void Animal::makeSound() const
+{
+	std::cout<<"earth is flat"<<std::endl;
+}
+
+std::string Animal::getType() const
+{
+	return this->type;
+}

@@ -1,40 +1,40 @@
 #include "ScavTrap.hpp"
 int main() {
-	ClapTrap lopo0("ae");
+	ClapTrap test0("ae");
 	std::cout<<"------------------\n";
-	ScavTrap lopo1;
+	ScavTrap test1;
 	std::cout<<"------------------\n";
-	ClapTrap *lopo1ptr = &lopo1; // possible uses func dyal claptrap because of the type
+	ClapTrap *test1ptr = &test1; // possible uses func dyal claptrap because of the type
 	std::cout<<"------------------\n";
-	lopo1ptr->attack("kapa");
+	test1ptr->attack("kapa");
 	std::cout<<"------------------\n";
-	//ScavTrap *lopo0ptr = &lopo0;// not possible
+	//ScavTrap *test0ptr = &test0;// not possible
 	std::cout<<"------------------\n";
-	ScavTrap lopo2("rapa");
+	ScavTrap test2("rapa");
 	std::cout<<"------------------\n";
-	lopo2.guardGate();
+	test2.guardGate();
 	std::cout<<"------------------\n";
-	lopo2.attack("ropo");
+	test2.attack("ropo");
 	std::cout<<"------------------\n";
-	lopo2.beRepaired(55);
+	test2.beRepaired(55);
 	std::cout<<"------------------\n";
-	lopo2.takeDamage(5000);
+	test2.takeDamage(5000);
 	std::cout<<"------------------\n";
-	lopo2.beRepaired(55);
+	test2.beRepaired(55);
 	std::cout<<"------------------\n";
-	ScavTrap lopo3 = lopo2;
+	ScavTrap test3 = test2;
 	std::cout<<"------------------\n";
-	ScavTrap lopo4(lopo3);
+	ScavTrap test4(test3);
 	std::cout<<"------------------\n";
-	lopo4.attack("keke");
+	test4.attack("keke");
 	std::cout<<"------------------\n";
-	ScavTrap lopo5(lopo1);
+	ScavTrap test5(test1);
 	std::cout<<"------------------\n";
-	lopo5.attack("last");
+	test5.attack("last");
 	std::cout<<"------------------\n";
-	lopo5.guardGate();
+	test5.guardGate();
 	std::cout<<"------------------\n";
-	lopo5.beRepaired(9000);
+	test5.beRepaired(9000);
 	std::cout<<"------------------\n";
 
 	return 0;

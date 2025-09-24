@@ -1,32 +1,32 @@
 #include "ClapTrap.hpp"
 int main() {
-	ClapTrap lopo0("ae");
+	ClapTrap test0("first clap");
 	std::cout<<"------------------\n";
-	ClapTrap lopo1;
+	ClapTrap test1;
 	std::cout<<"------------------\n";
-	lopo1.attack("kapa");
+	test1.attack("kapa");
 	std::cout<<"------------------\n";
-	ClapTrap lopo2("rapa");
+	ClapTrap test2("rapa");
 	std::cout<<"------------------\n";
-	lopo2.attack("ropo");
+	test2.attack("lopo");
 	std::cout<<"------------------\n";
-	lopo2.beRepaired(55);
+	test2.beRepaired(55);
 	std::cout<<"------------------\n";
-	lopo2.takeDamage(5000);
+	test2.takeDamage(5000);
 	std::cout<<"------------------\n";
-	lopo2.beRepaired(55);
+	test2.beRepaired(55);
 	std::cout<<"------------------\n";
-	ClapTrap lopo3 = lopo2;
+	ClapTrap test3 = test2;
 	std::cout<<"------------------\n";
-	ClapTrap lopo4(lopo3);
+	ClapTrap test4(test3);
 	std::cout<<"------------------\n";
-	lopo4.attack("keke");
+	test4.attack("someth");
 	std::cout<<"------------------\n";
-	ClapTrap lopo5(lopo1);
+	ClapTrap test5(test1);
 	std::cout<<"------------------\n";
-	lopo5.attack("last");
+	test5.attack("last");
 	std::cout<<"------------------\n";
-	lopo5.beRepaired(9000);
+	test5.beRepaired(9000);
 	std::cout<<"------------------\n";
 
 	return 0;
