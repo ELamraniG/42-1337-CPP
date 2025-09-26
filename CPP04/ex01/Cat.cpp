@@ -2,11 +2,13 @@
 #include "Brain.hpp"
 Cat::Cat()
 {
+	this->b = new Brain();
 	this->type = "Cat";
 	std::cout << "Cat default const called" << std::endl;
 }
 Cat::~Cat()
 {
+	this->b = new Brain();
 	std::cout << "Cat default deconst called" << std::endl;
 }
 Cat::Cat(const Cat &cpy)
