@@ -1,12 +1,13 @@
 #pragma once
-#include "Brain.hpp"
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 class Dog : public Animal
 {
-	private:
-		Brain *b;
-	public:
+  private:
+	Brain *b;
+
+  public:
 	Dog();
 	~Dog();
 	Dog(const Dog &cpy);
