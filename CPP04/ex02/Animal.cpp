@@ -10,21 +10,17 @@ Animal::~Animal()
 }
 Animal::Animal(const Animal &cpy)
 {
-	std::cout << "animal cpy const called" << std::endl;
+	std::cout << "Animal cpy const called" << std::endl;
 	*this = cpy;
 }
 Animal &Animal::operator=(const Animal &cpy)
 {
-	std::cout << "animal cpy assign called" << std::endl;
+	std::cout << "Animal cpy assign called" << std::endl;
 	this->type = cpy.type;
 	return (*this);
 }
 
 
-void Animal::makeSound() const
-{
-	std::cout<<"earth is flat"<<std::endl;
-}
 
 std::string Animal::getType() const
 {
