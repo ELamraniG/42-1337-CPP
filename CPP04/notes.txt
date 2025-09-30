@@ -1,2 +1,1 @@
-aurthodox for brain
-finish cat and understand copies deep and shit
+make sure there is deep copy in copy assign in catdogd

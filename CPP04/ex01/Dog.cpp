@@ -13,13 +13,19 @@ Dog::~Dog()
 Dog::Dog(const Dog &cpy)
 {
 	std::cout << "Dog cpy const called" << std::endl;
+	this->b = NULL; 
 	*this = cpy;
 }
 Dog &Dog::operator=(const Dog &cpy)
 {
+	
 	std::cout << "Dog cpy assign called" << std::endl;
+	if (this == &cpy)
+		return (*this);
 	this->type = cpy.type;
-	this->b = cpy.b;
+	if (this->b != NULL)
+		delete this->b;
+	this->b = new Brain(*cpy.b);
 	return (*this);
 }
 
