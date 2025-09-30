@@ -13,14 +13,19 @@ Cat::~Cat()
 }
 Cat::Cat(const Cat &cpy)
 {
-	std::cout << "Cat cpy const called" << std::endl; 
+	std::cout << "Cat cpy const called" << std::endl;
+	this->b = NULL;
 	*this = cpy;
 }
 Cat &Cat::operator=(const Cat &cpy)
 {
 	std::cout << "Cat cpy assign called" << std::endl;
+	if (this == &cpy)
+		return (*this);
 	this->type = cpy.type;
-	this->b = cpy.b;
+	if (this->b != NULL)
+		delete this->b;
+	this->b = new Brain(*cpy.b);
 	return (*this);
 }
 

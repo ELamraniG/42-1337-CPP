@@ -11,12 +11,12 @@ WrongAnimal::~WrongAnimal()
 }
 WrongAnimal::WrongAnimal(const WrongAnimal &cpy)
 {
-	std::cout << "Cat cpy const called" << std::endl;
+	std::cout << "WrongAnimal cpy const called" << std::endl;
 	*this = cpy;
 }
 WrongAnimal &WrongAnimal::operator=(const WrongAnimal &cpy)
 {
-	std::cout << "Cat cpy assign called" << std::endl;
+	std::cout << "WrongAnimal cpy assign called" << std::endl;
 	this->type = cpy.type;
 	return (*this);
 }

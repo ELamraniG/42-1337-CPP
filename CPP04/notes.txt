@@ -1,0 +1,1 @@
+make sure there is deep copy in copy assign in catdogd
