@@ -10,12 +10,12 @@ Animal::~Animal()
 }
 Animal::Animal(const Animal &cpy)
 {
-	std::cout << "Cat cpy const called" << std::endl;
+	std::cout << "Animal cpy const called" << std::endl;
 	*this = cpy;
 }
 Animal &Animal::operator=(const Animal &cpy)
 {
-	std::cout << "Cat cpy assign called" << std::endl;
+	std::cout << "Animal cpy assign called" << std::endl;
 	this->type = cpy.type;
 	return (*this);
 }
