@@ -33,15 +33,15 @@ void LinkedLista::add_end(AMateria *materiela)
 }
 void LinkedLista::clear_lista()
 {
-	LinkedLista *tmp = this;
+	LinkedLista *tmp = this->next;
 	LinkedLista *prev = NULL;
-	if (tmp->next == NULL)
+	if (tmp == NULL)
 	{
 		if (this->lmateriel != NULL)
 			delete this->lmateriel;
 		return ;
 	}
-	while (tmp->next != NULL)
+	while (tmp != NULL)
 	{
 		if (prev != NULL)
 			delete prev;
@@ -49,4 +49,6 @@ void LinkedLista::clear_lista()
 		prev = tmp;
 		tmp = tmp->next;
 	}
+	if (prev != NULL)
+		delete prev;
 }

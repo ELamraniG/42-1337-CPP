@@ -6,7 +6,7 @@ MateriaSource::MateriaSource() : counter(0)
 }
 
 
-MateriaSource::~MateriaSource()
+MateriaSource::~MateriaSource() 
 {
 	std::cout << "MateriaSource default deconst caleld" << std::endl;
 	for (int i = 0;i < this->counter;i++)
@@ -16,7 +16,7 @@ MateriaSource::~MateriaSource()
 
 }
 
-MateriaSource::MateriaSource(const MateriaSource &cpy)
+MateriaSource::MateriaSource(const MateriaSource &cpy) : counter(0)
 {
 	std::cout << "MateriaSource copy const caleld" << std::endl;
 	*this = cpy;
@@ -25,11 +25,18 @@ MateriaSource::MateriaSource(const MateriaSource &cpy)
 MateriaSource &MateriaSource::operator=(const MateriaSource &cpy)
 {
 	std::cout << "MateriaSource copy assign	 caleld" << std::endl;
-	for(int i = this->counter - 1; i >= 0; i--)
+	int i = 0;
+	while (i < 4)
 	{
-		delete this->to_learn[i];
+		if (this->to_learn[i])
+		{
+			delete this->to_learn[i];
+			this->to_learn[i] = NULL;
+			this->counter--;
+		}
+		i++;
 	}
-	for(int i = 0; i < cpy.counter; i++)
+	for(i = 0; i < cpy.counter; i++)
 	{
 		this->to_learn[i] = cpy.to_learn[i]->clone();
 		this->counter++;
@@ -41,7 +48,7 @@ void MateriaSource::learnMateria(AMateria *mat)
 {
 	if (mat == NULL)
 		return;
-	if (counter == 4)
+	if (counter == 4) 
 	{
 		delete mat;
 		return;
