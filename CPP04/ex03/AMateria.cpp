@@ -22,6 +22,7 @@ AMateria &AMateria::operator=(AMateria const &cpy)
 {
 	std::cout << "amateria copy assign called";
 	this->type = cpy.type;
+	return *this;
 }
 std::string const &AMateria::getType() const
 {
@@ -29,5 +30,5 @@ std::string const &AMateria::getType() const
 }
 void		AMateria::use(ICharacter &target)
 {
-
+	(void)target; //later
 }

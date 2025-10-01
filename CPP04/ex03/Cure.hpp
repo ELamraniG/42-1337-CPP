@@ -1,6 +1,6 @@
 #include "AMateria.hpp"
 
-class Cure : AMateria
+class Cure : public AMateria
 {
   private:
   //
@@ -9,4 +9,6 @@ class Cure : AMateria
 	~Cure();
 	Cure(const Cure &cpy);
 	Cure &operator=(const Cure &cpy);
+	virtual AMateria *clone() const;
+	virtual void use(ICharacter &target);
 };
