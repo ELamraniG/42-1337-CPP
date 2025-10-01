@@ -1,0 +1,59 @@
+#include "Character.hpp"
+#include "LinkedLista.hpp"
+
+Character::Character() : name("nameless_bonobo")
+{
+	std::cout << "Character default const called" << std::endl;
+	for (int i = 0; i < 4; i++)
+		this->materiels[i] = NULL;
+}
+Character::~Character() 
+{
+	//implement later 
+}
+Character::Character(std::string name) : name(name)
+{
+	std::cout << "Character named const called" << std::endl;
+	for (int i = 0; i < 4; i++)
+		this->materiels[i] = NULL;
+}
+std::string const &Character::getName() const
+{
+	return (this->name);
+}
+
+void Character::equip(AMateria *m)
+{
+	if (m == NULL)
+		return ;
+	if (materiel_size == 4)
+	{
+		this->lista.add_end(m);
+		return ;
+	}
+	for (int i = 0; i < 4; i++)
+	{
+		if (this->materiels[i] == NULL)
+		{
+			this->materiels[i] = m;
+			break ;
+		}
+	}
+	this->lista.add_end(m);
+	this->materiel_size++;
+}
+void Character::unequip(int idx)
+{
+	if (idx < 0 || idx >= this->materiel_size)
+		return ;
+	this->materiels[idx] = NULL;
+	this->materiel_size--;
+}
+void Character::use(int idx, ICharacter &target)
+{
+	if (idx < 0 || idx >= this->materiel_size)
+		return ;
+	this->materiels[idx]->use(target);
+}
+
+// add the rest of canonial form later

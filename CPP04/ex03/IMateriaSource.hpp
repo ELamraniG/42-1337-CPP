@@ -1,4 +1,6 @@
-#include "AMateria.hpp"
+#pragma once
+#include "Cure.hpp"
+#include "Ice.hpp"
 
 class IMateriaSource
 {
