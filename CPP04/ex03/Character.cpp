@@ -1,4 +1,5 @@
 #include "Character.hpp"
+#include "AMateria.hpp"
 #include "LinkedLista.hpp"
 
 Character::Character() : name("nameless_bonobo"), materiel_size(0)
@@ -7,12 +8,12 @@ Character::Character() : name("nameless_bonobo"), materiel_size(0)
 	for (int i = 0; i < 4; i++)
 		this->materiels[i] = NULL;
 }
-Character::~Character() 
+Character::~Character()
 {
 	std::cout << "Character default deconst called" << std::endl;
 	this->lista.clear_lista();
 }
-Character::Character(std::string name) : name(name), materiel_size(0)	
+Character::Character(std::string name) : name(name), materiel_size(0)
 {
 	std::cout << "Character named const called" << std::endl;
 	for (int i = 0; i < 4; i++)
@@ -54,7 +55,35 @@ void Character::use(int idx, ICharacter &target)
 {
 	if (idx < 0 || idx >= this->materiel_size)
 		return ;
-	this->materiels[idx]->use(target);
+	if (this->materiels[idx] != NULL)
+		this->materiels[idx]->use(target);
 }
 
 // add the rest of canonial form later
+
+Character::Character(const Character &cpy)
+{
+	std::cout << "cop const called" << std::endl;
+	*this = cpy;
+}
+
+Character &Character::operator=(const Character &cpy)
+{
+	lista.clear_lista();
+	this->materiel_size = 0;
+	AMateria *tmp;
+	this->name = cpy.name;
+	for(int i = 0; i< 4;i++)
+	{
+		if (cpy.materiels[i] != NULL)
+		{
+			tmp = cpy.materiels[i]->clone();
+			this->materiels[i] = tmp;
+			lista.add_end(tmp);
+			this->materiel_size++;
+		}
+		else
+			this->materiels[i] = NULL;
+	}
+	return *this;
+}

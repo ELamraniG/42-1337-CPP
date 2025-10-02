@@ -13,4 +13,6 @@ class Cat : public Animal
 	Cat &operator=(const Cat &cpy);
 	void makeSound() const;
 	std::string getType() const;
+	void print_ideas();
+	void set_brain(Brain *d);
 };

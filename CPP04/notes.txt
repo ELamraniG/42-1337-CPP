@@ -1,3 +1,4 @@
 //add test to ex01 to check if there are shallow or deep copies 
 
 //finish the operators for acnonials and finish the leaks and everything;
+//remove atexit later
