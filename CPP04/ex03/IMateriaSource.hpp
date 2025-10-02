@@ -1,7 +1,7 @@
 #pragma once
 #include "Cure.hpp"
 #include "Ice.hpp"
-
+#include "Fire.hpp"
 class IMateriaSource
 {
 public:

@@ -1,7 +1,7 @@
 #include "Character.hpp"
 #include "LinkedLista.hpp"
 
-Character::Character() : name("nameless_bonobo")
+Character::Character() : name("nameless_bonobo"), materiel_size(0)
 {
 	std::cout << "Character default const called" << std::endl;
 	for (int i = 0; i < 4; i++)
@@ -9,9 +9,10 @@ Character::Character() : name("nameless_bonobo")
 }
 Character::~Character() 
 {
-	//implement later 
+	std::cout << "Character default deconst called" << std::endl;
+	this->lista.clear_lista();
 }
-Character::Character(std::string name) : name(name)
+Character::Character(std::string name) : name(name), materiel_size(0)	
 {
 	std::cout << "Character named const called" << std::endl;
 	for (int i = 0; i < 4; i++)
