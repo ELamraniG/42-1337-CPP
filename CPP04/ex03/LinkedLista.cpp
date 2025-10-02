@@ -35,12 +35,8 @@ void LinkedLista::clear_lista()
 {
 	LinkedLista *tmp = this->next;
 	LinkedLista *prev = NULL;
-	if (tmp == NULL)
-	{
-		if (this->lmateriel != NULL)
-			delete this->lmateriel;
-		return ;
-	}
+	if (this->lmateriel != NULL)
+		delete this->lmateriel;
 	while (tmp != NULL)
 	{
 		if (prev != NULL)
