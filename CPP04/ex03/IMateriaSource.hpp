@@ -2,6 +2,8 @@
 #include "Cure.hpp"
 #include "Ice.hpp"
 #include "Fire.hpp"
+#include "Zeus.hpp"
+#include "Sun.hpp"
 class IMateriaSource
 {
 public:

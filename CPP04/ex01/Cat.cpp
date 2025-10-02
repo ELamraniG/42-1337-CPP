@@ -1,5 +1,6 @@
-#include "Cat.hpp"
 #include "Brain.hpp"
+#include "Cat.hpp"
+
 Cat::Cat()
 {
 	std::cout << "Cat default const called" << std::endl;
@@ -31,10 +32,22 @@ Cat &Cat::operator=(const Cat &cpy)
 
 void Cat::makeSound() const
 {
-	std::cout<<"MAW MAW MAW"<<std::endl;
+	std::cout << "MAW MAW MAW" << std::endl;
 }
 
 std::string Cat::getType() const
 {
-	return this->type;
+	return (this->type);
 }
+void Cat::print_ideas()
+{
+	b->print_ideas();
+}
+
+void Cat::set_brain(Brain *d)
+	{
+		if (d == NULL)
+			return ;
+		delete this->b;
+		this->b = d;
+	}

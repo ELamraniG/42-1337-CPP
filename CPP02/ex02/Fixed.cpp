@@ -155,3 +155,9 @@ Fixed Fixed::operator--(int)
 	this->_fixed_point--;
 	return (f);
 }
+
+void Fixed::randomm(const Fixed &f1)
+{
+	(void)f1;
+	std::cout<<"waayeh\n";
+}

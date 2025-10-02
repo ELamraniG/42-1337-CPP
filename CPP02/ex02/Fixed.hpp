@@ -18,6 +18,7 @@ class Fixed
 	void setRawBits(int const raw);
 	float toFloat(void) const;
 	int toInt(void) const;
+	void randomm(const Fixed &f1);
 
 	bool operator>(const Fixed &f1)const;
 	bool operator<(const Fixed &f1)const;

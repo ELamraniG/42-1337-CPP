@@ -38,3 +38,16 @@ std::string Dog::getType() const
 {
 	return this->type;
 }
+
+	void Dog::print_ideas()
+	{
+		b->print_ideas();
+	}
+
+	void Dog::set_brain(Brain *d)
+	{
+		if (d == NULL)
+			return ;
+		delete this->b;
+		this->b = d;
+	}
