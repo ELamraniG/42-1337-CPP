@@ -5,6 +5,7 @@
 Character::Character() : name("nameless_bonobo"), materiel_size(0)
 {
 	std::cout << "Character default const called" << std::endl;
+	lista = new LinkedLista();
 	for (int i = 0; i < 4; i++)
 		this->materiels[i] = NULL;
 }
@@ -12,10 +13,12 @@ Character::~Character()
 {
 	std::cout << "Character default deconst called" << std::endl;
 	this->lista.clear_lista();
+	delete lista;
 }
 Character::Character(std::string name) : name(name), materiel_size(0)
 {
 	std::cout << "Character named const called" << std::endl;
+	lista = new LinkedLista();
 	for (int i = 0; i < 4; i++)
 		this->materiels[i] = NULL;
 }
@@ -30,7 +33,7 @@ void Character::equip(AMateria *m)
 		return ;
 	if (materiel_size == 4)
 	{
-		this->lista.add_end(m);
+		this->lista->add_end(m);
 		return ;
 	}
 	for (int i = 0; i < 4; i++)
@@ -41,19 +44,21 @@ void Character::equip(AMateria *m)
 			break ;
 		}
 	}
-	this->lista.add_end(m);
+	this->lista->add_end(m);
 	this->materiel_size++;
 }
 void Character::unequip(int idx)
 {
-	if (idx < 0 || idx >= this->materiel_size)
+	if (idx < 0 || idx >= 4)
+		return ;
+	if (this->materiels[idx] == NULL)
 		return ;
 	this->materiels[idx] = NULL;
 	this->materiel_size--;
 }
 void Character::use(int idx, ICharacter &target)
 {
-	if (idx < 0 || idx >= this->materiel_size)
+	if (idx < 0 || idx >= 4)
 		return ;
 	if (this->materiels[idx] != NULL)
 		this->materiels[idx]->use(target);
@@ -64,12 +69,17 @@ void Character::use(int idx, ICharacter &target)
 Character::Character(const Character &cpy)
 {
 	std::cout << "cop const called" << std::endl;
+	this->lista = new LinkedLista();
 	*this = cpy;
 }
 
 Character &Character::operator=(const Character &cpy)
 {
-	lista.clear_lista();
+	 if (this == &cpy)
+        return *this;
+	lista->clear_lista();
+	delete lista;
+	lista = new LinkedLista();
 	this->materiel_size = 0;
 	AMateria *tmp;
 	this->name = cpy.name;
@@ -79,7 +89,7 @@ Character &Character::operator=(const Character &cpy)
 		{
 			tmp = cpy.materiels[i]->clone();
 			this->materiels[i] = tmp;
-			lista.add_end(tmp);
+			lista->add_end(tmp);
 			this->materiel_size++;
 		}
 		else

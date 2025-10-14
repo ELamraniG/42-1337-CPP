@@ -8,7 +8,7 @@ all : $(NAME)
 
 $(NAME) : $(OBJ)
 	$(CC) $(CPPFLAGS) $(OBJ) -o $(NAME)
-%.o : %.c AMateria.hpp Cure.hpp Ice.hpp Fire.hpp MateriaSource.hpp  IMateriaSource.hpp  ICharacter.hpp Character.hpp LinkedLista.hpp Zeus.hpp Sun.hpp
+%.o : %.cpp AMateria.hpp Cure.hpp Ice.hpp Fire.hpp MateriaSource.hpp  IMateriaSource.hpp  ICharacter.hpp Character.hpp LinkedLista.hpp Zeus.hpp Sun.hpp
 	$(CC) -c $(CPPFLAGS) $< -o $@
 
 clean :
