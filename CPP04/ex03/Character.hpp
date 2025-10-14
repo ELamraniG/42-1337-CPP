@@ -7,7 +7,7 @@ class Character : public ICharacter
 {
   private:
 	std::string name;
-	LinkedLista lista;
+	LinkedLista *lista;
 	AMateria *materiels[4];
 	int materiel_size;
   public:
