@@ -1,5 +1,6 @@
 #pragma once
 #include <exception>
+#include <fstream>
 #include <iostream>
 
 class Bureaucrat
@@ -29,3 +30,8 @@ class Bureaucrat
         void decrement_buro();
 };
 // add << later
+
+std::fstream operator<<()
+{
+    
+}
