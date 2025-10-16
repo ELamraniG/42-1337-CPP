@@ -3,9 +3,9 @@
 int main()
 {
     Bureaucrat a("bob", 149);
-    std::cout << a.getName() << " " << a.getGrade() << std::endl;
+    // std::cout << a.getName() << " " << a.getGrade() << std::endl;
     a.increment_buro();
-    std::cout << a.getName() << " " << a.getGrade() << std::endl;
+    // std::cout << a.getName() << " " << a.getGrade() << std::endl;
     try
     {
         a.increment_buro();
@@ -15,5 +15,6 @@ int main()
     {
         std::cerr << e.what() << std::endl;
     }
-    a.signForm();
+    Form f;
+    a.signForm(f);
 }

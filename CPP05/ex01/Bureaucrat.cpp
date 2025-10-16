@@ -1,6 +1,4 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
-#include <exception>
 
    Bureaucrat::Bureaucrat() : name("useless mofo"), grade(150)
    {
@@ -54,12 +52,18 @@
         return "GradeTooHighException";
     }
 
-    const char *Bureaucrat::GradeTooLowException::what() const throw()
-    {
-        return "GradeTooLowException";
-    }
+const char *Bureaucrat::GradeTooLowException::what() const throw()
+{
+    return "GradeTooLowException";
+}
 
-    void signForm(Form &f)
-    {
-        f.beSigned(*this);
-    }
+    void Bureaucrat::signForm(Form &f)
+{
+       f.beSigned(*this);
+}
+
+std::ostream & operator<<(std::ostream & o, Bureaucrat & buro)
+{
+    o << "Bureaucrat " << buro.getName() << ", grade " << buro.getGrade();
+    return o;
+}
