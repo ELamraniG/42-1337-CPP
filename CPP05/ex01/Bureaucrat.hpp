@@ -2,6 +2,7 @@
 #include <exception>
 #include <fstream>
 #include <iostream>
+#include "Form.hpp"
 
 class Bureaucrat
 {
@@ -24,10 +25,11 @@ class Bureaucrat
         ~Bureaucrat();
         Bureaucrat(const Bureaucrat &cpy);
         Bureaucrat & operator=(const Bureaucrat &cpy);
-        std::string getName();
-        int getGrade();
-        void increment_buro();
-        void decrement_buro();
+        std::string getName() const ;
+        int getGrade() const ;
+        void increment_buro() ;
+        void decrement_buro() ;
+        void signForm(Form &f);
 };
 // add << later
 

@@ -15,20 +15,5 @@ int main()
     {
         std::cerr << e.what() << std::endl;
     }
-    try
-    {
-        Bureaucrat b("alice", -1);
-    }
-    catch (const std::exception &e)
-    {
-        std::cerr << e.what() << std::endl;
-    }
-     try
-    {
-        Bureaucrat b("alice", 1231);
-    }
-    catch (const std::exception &e)
-    {
-        std::cerr << e.what() << std::endl;
-    }
+    a.signForm();
 }
