@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 #include <exception>
 
    Bureaucrat::Bureaucrat() : name("useless mofo"), grade(150)
@@ -26,7 +27,7 @@
                 this->grade = cpy.grade;
             return *this;
         }
-        int Bureaucrat::getGrade()
+        int Bureaucrat::getGrade() const
         {
             return this->grade;
         }
@@ -43,7 +44,7 @@
             this->grade++;
         }
 
-     std::string Bureaucrat::getName()
+     std::string Bureaucrat::getName() const
     {
         return this->name;
     }
@@ -56,4 +57,9 @@
     const char *Bureaucrat::GradeTooLowException::what() const throw()
     {
         return "GradeTooLowException";
+    }
+
+    void signForm(Form &f)
+    {
+        f.beSigned(*this);
     }
