@@ -57,3 +57,8 @@
     {
         return "GradeTooLowException";
     }
+std::ostream & operator<<(std::ostream & o, Bureaucrat & buro)
+{
+    o << "Bureaucrat " << buro.getName() << ", grade " << buro.getGrade();
+    return o;
+}
