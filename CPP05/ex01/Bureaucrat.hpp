@@ -23,10 +23,10 @@ class Bureaucrat
         ~Bureaucrat();
         Bureaucrat(const Bureaucrat &cpy);
         Bureaucrat & operator=(const Bureaucrat &cpy);
-        std::string getName() const ;
-        int getGrade() const ;
-        void increment_buro() ;
-        void decrement_buro() ;
+        std::string getName() const;
+        int getGrade() const;
+        void increment_buro();
+        void decrement_buro();
         void signForm(Form &f);
 };
 // add << later

@@ -1,5 +1,5 @@
 SRC = Bureaucrat.cpp main.cpp Form.cpp
-NAME = ex00
+NAME = ex01
 OBJ = $(SRC:%.cpp=%.o)
 CC = c++ 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
