@@ -1,5 +1,5 @@
 #pragma once
-#include "Form.hpp"
+#include "AForm.hpp"
 
 class Bureaucrat
 {
