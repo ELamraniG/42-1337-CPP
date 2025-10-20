@@ -1,77 +1,85 @@
+#include "AForm.hpp"
 #include "Bureaucrat.hpp"
-Form::Form() : name("useless"), grade_to_sign(20),grade_to_excute(12) ,
+AForm::AForm() : name("useless"), grade_to_sign(20),grade_to_excute(12) ,
 	is_signed(false)
 {
 	if (this->grade_to_sign > 150 || this->grade_to_excute > 150)
-		throw(Form::GradeTooLowException());
+		throw(AForm::GradeTooLowException());
 	if (this->grade_to_sign < 1 || this->grade_to_excute < 1)
-		throw(Form::GradeTooHighException());
+		throw(AForm::GradeTooHighException());
 }
-Form::~Form()
+AForm::~AForm()
 {
 }
-Form::Form(std::string name, int grade_to_sign, int grade_to_excute) : 
+AForm::AForm(std::string name, int grade_to_sign, int grade_to_excute) : 
 name(name), grade_to_sign(grade_to_sign),grade_to_excute(grade_to_excute),
 	 is_signed(false)
 {
 	if (this->grade_to_sign > 150 || this->grade_to_excute > 150)
-		throw(Form::GradeTooLowException());
+		throw(AForm::GradeTooLowException());
 	if (this->grade_to_sign < 1 || this->grade_to_excute < 1)
-		throw(Form::GradeTooHighException());
+		throw(AForm::GradeTooHighException());
 }
-Form::Form(const Form &cpy) : 
+AForm::AForm(const AForm &cpy) : 
 name(cpy.get_name()), 
  grade_to_sign(cpy.get_grade_to_sign()),
  grade_to_excute(cpy.get_grade_to_excute()), 
  is_signed(cpy.get_is_signed()) 
 {
 }
-Form &Form::operator=(const Form &cpy)
+AForm &AForm::operator=(const AForm &cpy)
 {
 	this->is_signed = cpy.get_is_signed();
     return *this;
 }
 
-std::string Form::get_name() const
+std::string AForm::get_name() const
 {
 	return (this->name);
 }
-bool Form::get_is_signed() const
+bool AForm::get_is_signed() const
 {
 	return (this->is_signed);
 }
-int Form::get_grade_to_sign() const
+int AForm::get_grade_to_sign() const
 {
 	return (this->grade_to_sign);
 }
-int Form::get_grade_to_excute() const
+int AForm::get_grade_to_excute() const
 {
 	return (this->grade_to_excute);
 }
 
-void Form::beSigned(const Bureaucrat &buro)
+void AForm::beSigned(const Bureaucrat &buro)
 {
 	if (buro.getGrade() <= get_grade_to_sign())
 	{
 		this->is_signed = true;
 		return ;
 	}
-	throw (Form::GradeTooLowException());
+	throw (AForm::GradeTooLowException());
 }
 
 
-const char* Form::GradeTooHighException::what() const throw()
+const char* AForm::GradeTooHighException::what() const throw()
 {
 	return "GradeTooHighException";
 }
 
-const char* Form::GradeTooLowException::what() const throw()
+const char* AForm::GradeTooLowException::what() const throw()
 {
 	return "GradeTooLowException";
 }
 
-std::ostream & operator<<(std::ostream &o,Form &f)
+std::ostream & operator<<(std::ostream &o,AForm &f)
 {
-	o <<"Form "<<f.get_name()<<" grade to excute: "<< f.get_grade_to_excute()<<" grade to sign: "<< f.get_grade_to_sign()<< " is signed: "<<(f.get_is_signed() == true ? "true" : "false");
+	o <<"AForm "<<f.get_name()<<" grade to excute: "<< f.get_grade_to_excute()<<" grade to sign: "<< f.get_grade_to_sign()<< " is signed: "<<(f.get_is_signed() == true ? "true" : "false");
 	return o;
+}
+
+bool AForm::is_excutable(const Bureaucrat &buro) const
+{
+	if (buro.getGrade() > get_grade_to_excute() || this->get_is_signed() == false)
+		return false;
+	return true;
 }

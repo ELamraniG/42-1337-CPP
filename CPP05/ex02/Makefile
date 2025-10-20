@@ -1,14 +1,14 @@
-SRC = Bureaucrat.cpp main.cpp Form.cpp
-NAME = ex01
+SRC = Bureaucrat.cpp main.cpp AForm.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
+NAME = ex02
 OBJ = $(SRC:%.cpp=%.o)
-CC = c++ 
+CPP = c++ 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all : $(NAME)
 $(NAME) : $(OBJ)	
-	$(CC) $(CPPFLAGS) $(OBJ) -o $(NAME)
-%.o : %.cpp Bureaucrat.hpp Form.hpp
-	$(CC) -c $(CPPFLAGS)  $< -o $@
+	$(CPP) $(CPPFLAGS) $(OBJ) -o $(NAME)
+%.o : %.cpp Bureaucrat.hpp AForm.hpp PresidentialPardonForm.hpp RobotomyRequestForm.hpp ShrubberyCreationForm.hpp
+	$(CPP) -c $(CPPFLAGS)  $< -o $@
 clean : 
 	rm -rf $(OBJ)
 fclean : clean
