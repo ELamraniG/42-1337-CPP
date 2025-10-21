@@ -14,7 +14,7 @@ PresidentialPardonForm::~PresidentialPardonForm()
 {
 
 }
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &cpy) : AForm("PresidentialPardonForm",25,5)
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &cpy) : AForm(cpy)
 {
 	*this = cpy;
 }
@@ -27,8 +27,7 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
 
 void PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
-	if (is_excutable(executor) == false)
-		return;
+	is_excutable(executor);
 	std::cout<<get_target()<<" has been pardoned by Zaphod Beeblebrox."<<std::endl;
 }	
 

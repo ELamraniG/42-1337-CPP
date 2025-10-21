@@ -71,15 +71,21 @@ const char* AForm::GradeTooLowException::what() const throw()
 	return "GradeTooLowException";
 }
 
+const char* AForm::NotSignedException::what() const throw()
+{
+	return "NotSignedException";
+}
+
 std::ostream & operator<<(std::ostream &o,AForm &f)
 {
 	o <<"AForm "<<f.get_name()<<" grade to excute: "<< f.get_grade_to_excute()<<" grade to sign: "<< f.get_grade_to_sign()<< " is signed: "<<(f.get_is_signed() == true ? "true" : "false");
 	return o;
 }
 
-bool AForm::is_excutable(const Bureaucrat &buro) const
+void AForm::is_excutable(const Bureaucrat &buro) const
 {
-	if (buro.getGrade() > get_grade_to_excute() || this->get_is_signed() == false)
-		return false;
-	return true;
+	if (this->get_is_signed() == false)
+		throw(AForm::NotSignedException());
+	if (buro.getGrade() > get_grade_to_excute())
+		throw(AForm::GradeTooLowException());
 }

@@ -1,5 +1,6 @@
+#pragma once
 #include "AForm.hpp"
-#include "fstream"
+#include <fstream>
 class ShrubberyCreationForm : public AForm
 {
 	private :

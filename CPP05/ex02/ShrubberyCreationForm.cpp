@@ -15,7 +15,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("Shrubb
 {
 
 }	
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &cpy) : AForm("ShrubberyCreationForm",145,137)
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &cpy) : AForm(cpy)
 {
 	*this = cpy;
 }
@@ -28,15 +28,18 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
-	if (is_excutable(executor) == false)
-		return;
+
+	is_excutable(executor);
 	std::string namee = get_target() + "_shrubbery";
 	std::ofstream file(namee.c_str());
 	if (file.fail())
+	{
 		std::cout<<"problem in opening the file"<<std::endl;
-	std::string treee = "     *\n   *****\n *********\n***********\n     *\n     *\n     *\n     *\n     *\n";
+		return;
+	}
+	std::string treee = "      *\n    *****\n  *********\n ***********\n      *\n      *\n      *\n      *\n      *\n*************\n";
 	file<<treee;
-	return ;
+	file.close();
 }	
 
 

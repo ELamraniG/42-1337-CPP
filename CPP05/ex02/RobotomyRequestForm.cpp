@@ -5,7 +5,6 @@
 
 RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm",72,45) , target("hadak00")
 {
-
 }
 RobotomyRequestForm::~RobotomyRequestForm()
 {
@@ -13,9 +12,8 @@ RobotomyRequestForm::~RobotomyRequestForm()
 }
 RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("RobotomyRequestForm",72,45) , target(target)
 {
-
 }
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &cpy) : AForm("RobotomyRequestForm",72,45)
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &cpy) : AForm(cpy)
 {
 	*this = cpy;
 }
@@ -28,10 +26,8 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &c
 
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
-	if (is_excutable(executor) == false)
-		return;
+	is_excutable(executor);
 	std::cout<<"zzzzzzzznnnnnnnn"<<std::endl;
-	srand(time(NULL));
 	int n = rand() % 2;
 	if (n == 0)
 		std::cout<<get_target()<<" has been robotomized"<<std::endl;

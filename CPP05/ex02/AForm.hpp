@@ -19,6 +19,10 @@ class AForm
 	{
 		const char * what() const throw(); 
 	};
+	class NotSignedException : public std::exception
+	{
+		const char * what() const throw();
+	};
 	AForm();
 	virtual ~AForm();
 	AForm(std::string name,int grade_to_sign, int grade_to_excute);
@@ -29,7 +33,7 @@ class AForm
 	int get_grade_to_sign() const;
 	int get_grade_to_excute() const;
 	void beSigned(const Bureaucrat &buro);
-	bool is_excutable(const Bureaucrat &buro) const;
+	void is_excutable(const Bureaucrat &buro) const;
 	virtual void execute(Bureaucrat const & executor) const = 0;
 };
 
