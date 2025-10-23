@@ -1,0 +1,149 @@
+# CPP06 Ex00 - ScalarConverter Valid Input Rules
+
+## Valid Input Types
+
+### 1. Char Literal
+**Rule**: Exactly 1 character that is NOT a digit
+
+**Valid Examples**:
+- `a`, `z`, `@`, `!`, ` ` (space), `*`, `#`
+
+**Invalid Examples**:
+- `5` → Single digit (will be treated as int)
+- `ab` → More than 1 character
+- `wdw` → More than 1 character (ERROR: invalid literal)
+
+---
+
+### 2. Int Literal
+**Rule**: Optional sign (`+` or `-`) followed by digits only (no decimal point)
+
+**Valid Examples**:
+- `0`, `42`, `-42`, `+42`, `2147483647`, `-2147483648`
+
+**Invalid Examples**:
+- `42.0` → Has decimal point (will be double)
+- `42f` → Has letter (invalid)
+- `42abc` → Mix of numbers and letters (invalid)
+
+---
+
+### 3. Float Literal
+**Rule**: 
+- Must end with `f`
+- Optional sign (`+` or `-`)
+- Must contain at least one digit
+- Can have ONE decimal point
+
+**Valid Examples**:
+- `42.0f`, `-42.42f`, `+42.0f`, `0.1f`, `.5f`, `5.f`
+
+**Invalid Examples**:
+- `42.0` → Missing 'f' (will be double)
+- `42.0.0f` → Two decimal points (invalid)
+- `.f` → No digits (invalid)
+- `f` → Just a letter (invalid)
+
+---
+
+### 4. Double Literal
+**Rule**:
+- Optional sign (`+` or `-`)
+- Must contain at least one digit
+- Must have ONE decimal point (differentiates from int)
+- Does NOT end with `f`
+
+**Valid Examples**:
+- `42.0`, `-42.42`, `+42.0`, `0.1`, `.5`, `5.`
+
+**Invalid Examples**:
+- `42` → No decimal point (will be int)
+- `42.0f` → Has 'f' (will be float)
+- `42.0.0` → Two decimal points (invalid)
+
+---
+
+### 5. Pseudo Literals (Special Values)
+**Rule**: Exact match of these strings (case sensitive)
+
+**Valid Strings**:
+- `nan`, `nanf` → Not a Number
+- `+inf`, `+inff`, `inf`, `inff` → Positive Infinity
+- `-inf`, `-inff` → Negative Infinity
+
+**Invalid Examples**:
+- `NaN`, `Inf`, `NAN` → Wrong case (invalid)
+
+---
+
+## Processing Priority Order
+
+The program checks input in this order:
+
+1. **Pseudo literals** (exact match: nan, inf, etc.)
+2. **Char** (length == 1 AND not a digit)
+3. **Int** (digits only, optional sign, no decimal)
+4. **Float** (decimal point + ends with 'f')
+5. **Double** (decimal point, no 'f')
+6. **If none match** → "Error: invalid literal"
+
+---
+
+## Char Conversion Output Rules
+
+When converting TO char:
+
+### "Non displayable"
+- Value is within char range (0-127) BUT not printable
+- ASCII 0-31 (control characters: `\n`, `\t`, etc.)
+- ASCII 127 (DEL character)
+
+**Example**: `./convert 10` → char: Non displayable
+
+### "impossible"
+- Value cannot be represented as a char
+- Values < 0 or > 127 (outside ASCII range)
+- Special values: `nan`, `inf`, `-inf`
+- Any overflow situations
+
+**Example**: `./convert 128` → char: impossible
+
+### Displayable char
+- ASCII 32-126 (printable characters)
+
+**Example**: `./convert 65` → char: 'A'
+
+---
+
+## Common Invalid Inputs
+
+```
+wdw          ❌ Multiple characters, not a number
+hello        ❌ Letters only
+42abc        ❌ Mix of numbers and letters
+42.0.0       ❌ Multiple decimal points
+.f           ❌ No digits in float
+++42         ❌ Multiple signs
+-            ❌ Sign only, no number
+""           ❌ Empty string
+NaN          ❌ Wrong case (must be lowercase "nan")
+```
+
+---
+
+## Examples Summary
+
+| Input      | Type   | Valid? | Reason                           |
+|------------|--------|--------|----------------------------------|
+| `a`        | char   | ✅     | Single non-digit character       |
+| `5`        | int    | ✅     | Single digit (treated as int)    |
+| `wdw`      | -      | ❌     | 3 characters (invalid)           |
+| `42`       | int    | ✅     | Digits only                      |
+| `42.0`     | double | ✅     | Has decimal point, no 'f'        |
+| `42.0f`    | float  | ✅     | Has decimal point and 'f'        |
+| `-42`      | int    | ✅     | Sign + digits                    |
+| `nan`      | pseudo | ✅     | Exact match                      |
+| `+inf`     | pseudo | ✅     | Exact match                      |
+| `.5f`      | float  | ✅     | Decimal + digit + 'f'            |
+| `42f`      | float  | ⚠️     | No decimal (some accept, some don't) |
+| `NaN`      | -      | ❌     | Wrong case                       |
