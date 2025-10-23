@@ -3,14 +3,19 @@
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include <exception>
 
 class Intern 
 {
 	public :
-	AForm* makeForm(std::string name, std::string target);
-	Intern();
-	~Intern();
-	Intern(Intern &cpy);
-	Intern& operator=(Intern &cpy);
+		class FormDoesntExistException : public std::exception
+		{
+			const char* what() const throw();
+		};
+		AForm* makeForm(std::string name, std::string target);
+		Intern();
+		~Intern();
+		Intern(Intern &cpy);
+		Intern& operator=(Intern &cpy);
 
 };

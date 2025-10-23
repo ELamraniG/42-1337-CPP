@@ -11,8 +11,7 @@ int	main(void)
 {
 	AForm	*forma;
 	Intern	in;
-	
-
+	forma = NULL;
 	srand(time(NULL));
 	try
 	{
@@ -21,18 +20,23 @@ int	main(void)
 		buro.signForm(*forma);
     forma->execute(buro);
     delete forma;
+	forma = NULL;
 		forma = in.makeForm("robotomy request", "getem2");
 		buro.signForm(*forma);
     forma->execute(buro);
     delete forma;
+	forma = NULL;
 		forma = in.makeForm("shrubbery creation", "getem2");
 		buro.signForm(*forma);
     forma->execute(buro);
     delete forma;
-		forma = in.makeForm("robotomy requesT", "getem2");
+	forma = NULL;
+	
+	forma = in.makeForm("robotomy requesT", "getem2");
 	}
 	catch (std::exception &e)
 	{
+		if (forma)
     		delete forma;
 		std::cout << e.what() << std::endl;
 	}

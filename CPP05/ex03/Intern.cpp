@@ -39,7 +39,7 @@ AForm* Intern::makeForm(std::string name, std::string target)
 			return f[i](target);
 		}
 	}
-	std::cout << "there is no such form" << std::endl;
+	throw(Intern::FormDoesntExistException());
 	return NULL;
 }
 
@@ -57,4 +57,9 @@ Intern &Intern::operator=(Intern &cpy)
 {
 	(void)cpy;
 	return *this;
+}
+
+const char * Intern::FormDoesntExistException::what() const throw()
+{
+	return "FormDoesn'tExist";
 }
