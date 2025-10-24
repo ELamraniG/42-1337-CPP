@@ -147,3 +147,6 @@ NaN          ❌ Wrong case (must be lowercase "nan")
 | `.5f`      | float  | ✅     | Decimal + digit + 'f'            |
 | `42f`      | float  | ⚠️     | No decimal (some accept, some don't) |
 | `NaN`      | -      | ❌     | Wrong case                       |
+
+
+

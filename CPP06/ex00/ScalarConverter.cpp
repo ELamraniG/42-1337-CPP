@@ -2,6 +2,8 @@
 #include <cctype>
 #include <cstdlib>
 #include <iomanip>
+#include <climits>
+
 
 bool	check_char(std::string string)
 {
@@ -114,23 +116,49 @@ bool	check_double(std::string s)
 		return false;
 	return true;
 }
-
+void print_all(double d);
 void ScalarConverter::convert(std::string s)
 {
-	char c;
-	int n;
-	float f;
+	
+	
 	double d;
 	if (check_char(s) == true)
 	{
-		c = static_cast<cd >()
+		d = static_cast<char>(s[0]);
 	}
-	if (check_int(s))
+	else if (check_int(s))
 	{
-		c = static_cast<char>(s[0]);
-		n = static_cast<int>(s[0]);
-		f = static_cast<float>(s[0]);
-		d = static_cast<double>(s[0]);
+		d = (std::atoi(s.c_str()));
 	}
+	else if (check_flaot(s))
+	{
+		d = std::atof(s.c_str());
+	}
+	else if (check_double(s))
+	{
+		d = std::strtof(s.c_str(), NULL);
+	}
+	print_all(d);
 
+}
+
+
+
+
+
+void print_all(double d)
+{
+	char c = static_cast<char>(d);
+	if (static_cast<int>(d) < 0 || static_cast<int>(d) > 255)
+	{
+		std::cout<<"char : impossible"<<std::endl;
+	}
+	else if (c <= static_cast<char>(13) || c == static_cast<char>(130))
+	{
+		std::cout<<"char : not displayble"<<std::endl;
+	}
+	if (static_cast<int>(d) < INT_MIN || static_cast<int>(d) > INT_MIN)
+	{
+		std::cout<<"int : impossible"<<std::endl;
+	}
 }
