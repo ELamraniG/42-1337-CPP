@@ -1,5 +1,4 @@
 #include "Bureaucrat.hpp"
-#include <iostream>
 
 int main()
 {
@@ -10,7 +9,7 @@ int main()
     try
     {
         a.increment_buro();
-        std::cout<<"will work fine"<<std::endl;  
+        std::cout << a.getName() << " " << a.getGrade() << std::endl;
     }
     catch (const std::exception &e)
     {
