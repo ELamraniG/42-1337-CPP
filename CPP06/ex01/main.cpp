@@ -11,5 +11,7 @@ int main()
 	Data *e = &d;
 	std::uintptr_t f = Serializer::serialize(e);
 	Data *p = Serializer::deserialize(f);
-	std::cout<<p->f<<"||||"<<p->i<<std::endl;
+	if (p == &d)
+		std::cout<<p->f<<"||||"<<p->i<<std::endl;
+		
 }
