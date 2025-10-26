@@ -13,8 +13,7 @@ bool	check_char(std::string string)
 
 bool	check_int(std::string s)
 {
-	int	i;
-	int	n;
+	unsigned long i;
 
 	i = 0;
 	if (s[0] != '-' && !std::isdigit(s[0]))
@@ -39,10 +38,9 @@ bool	check_int(std::string s)
 }
 bool	check_flaot(std::string s)
 {
-	int		i;
+	unsigned long		i;
 	bool	doted;
-	int		len;
-	float	f;
+	unsigned long		len;
 
 	std::string science_stuff[3] = {"-inf", "+inf", "nan"};
 	for (int j = 0; j < 3; j++)
@@ -78,10 +76,9 @@ bool	check_flaot(std::string s)
 }
 bool	check_double(std::string s)
 {
-	int		i;
+	unsigned long		i;
 	bool	doted;
-	int		len;
-	double	d;
+	unsigned long		len;
 
 	std::string science_stuff[3] = {"-inf", "+inf", "nan"};
 	for (int j = 0; j < 3; j++)
@@ -126,7 +123,7 @@ void ScalarConverter::convert(std::string s)
 	}
 	else if (check_int(s))
 	{
-		d = (std::atoi(s.c_str()));
+		d = std::strtod(s.c_str(), NULL);
 	}
 	else if (check_flaot(s))
 	{
@@ -134,7 +131,7 @@ void ScalarConverter::convert(std::string s)
 	}
 	else if (check_double(s))
 	{
-		d = std::strtof(s.c_str(), NULL);
+		d = std::strtod(s.c_str(), NULL);
 	}
 	else
 	{
@@ -179,18 +176,18 @@ void	print_int(double d)
 	int n = static_cast<int>(d);
 	if (d != d)
 		std::cout<<"int : impossible"<<std::endl;
-	else if (static_cast<int>(d) >= INT_MIN && static_cast<int>(d) <= INT_MAX)
+	else if (d < INT_MIN || d > INT_MAX)
 	{
-		std::cout << "int : " << n<<std::endl;
+		std::cout << "int : impossible" << std::endl;
 	}
 	else
 	{
-		std::cout << "int : impossible" << std::endl;
+		std::cout << "int : " << n<<std::endl;
 	}
 }
 void	print_float(double d)
 {
-	float f = static_cast<int>(d);
+	float f = static_cast<float>(d);
 	bool is_inf = (d == std::numeric_limits<float>::infinity() || d == -std::numeric_limits<float>::infinity());
 	if (d != d)
 		std::cout<<"float : nanf"<<std::endl;
