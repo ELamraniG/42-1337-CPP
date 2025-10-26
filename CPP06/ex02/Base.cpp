@@ -11,9 +11,9 @@ Base *Base::generate(void)
 	int n = rand() % 3;
 	if (n == 0)
 		b = new A();
-	if (n == 1)
+	else if (n == 1)
 		b = new B();
-	if (n == 2)
+	else
 		b = new C();
 	return b;
 }

@@ -6,12 +6,17 @@ CPPFLAGS = -Wall -Werror -Wextra -std=c++98
 
 all : $(NAME)
 $(NAME) : $(OBJ)
-	echo $(OBJ)
-	$(CPP) $(CPPFLAGS) $(OBJ) -o $(NAME)
+	@$(CPP) $(CPPFLAGS) $(OBJ) -o $(NAME)
+	@echo "$(NAME) is here"
 %.o : %.cpp Serializer.hpp
-	$(CPP) -c $(CPPFLAGS) $< -o $@
+	@echo "doing $<"
+	@$(CPP) -c $(CPPFLAGS) $< -o $@
 clean : 
-	rm -rf $(OBJ)
+	@rm -rf $(OBJ)
+	@echo "deleted $(OBJ)!"
 fclean : clean
-	rm -rf $(NAME)
+	@echo "deleting $(NAME) ..."
+	@rm -rf $(NAME)
 re : fclean all
+	
+	

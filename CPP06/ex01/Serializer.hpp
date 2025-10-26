@@ -1,6 +1,6 @@
 #pragma once
 #include <iostream>
-
+#include <stdint.h>
 
 typedef struct s_Data
 {
@@ -12,7 +12,10 @@ class  Serializer
 {
 	private :
 		Serializer();
+		~Serializer();
+		Serializer(const Serializer &other);
+        Serializer &operator=(const Serializer &other);
 	public :
-		static std::uintptr_t serialize(Data* ptr);
-		static Data* deserialize(std::uintptr_t raw);
+		static uintptr_t serialize(Data* ptr);
+		static Data* deserialize(uintptr_t raw);
 };
