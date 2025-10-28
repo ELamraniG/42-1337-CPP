@@ -1,14 +1,14 @@
-NAME = ex01
+NAME = ex02
 SRC = main.cpp
 OBJ = $(SRC:%.cpp=%.o)
 CPP = c++
-CPPFLAGS = -Wall -Werror -Wextra -std=c++98
+CPPFLAGS =-Wall -Werror -Wextra -std=c++98
 
 all : $(NAME)
 
 $(NAME) : $(OBJ)
 	$(CPP) $(CPPFLAGS) $(OBJ) -o $(NAME)
-%.o : %.cpp iter.hpp
+%.o : %.cpp Array.hpp
 	$(CPP) -c $(CPPFLAGS) $< -o $@
 
 clean : 
