@@ -1,7 +1,7 @@
-#include "iter.hpp"
+#include "Array.hpp"
 
 int	main(void)
 {
-
-	return (0);
+	 int * a = new int(5);
+	 std::cout<<*a;
 }
