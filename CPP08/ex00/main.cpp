@@ -1,33 +1,31 @@
-#include <iostream>
-#include <vector>
-using namespace std;
-int main() {
-    
 
-	vector<int>::iterator v;
+#include "easyfind.hpp"
 
-	v3.insert(v3.begin() +5,155);
-	v = v3.begin();
-	int i = 0;
-    while(v != v3.end()) 
-	{
-		if (v[0] == 155)
-			return 0;
-		std::cout<<v[i]<<std::endl;
-		i++;
-		v++;
-    }
-    
-    return 0;
-}
-
-
-
-
+int	main(void)
 {
-	sp.addNumber(6);
-	sp.addNumber(3);
-	sp.addNumber(11);
-	sp.addNumber(17);
-	sp.addNumber(9);
+	std::vector<int> t;
+	t.push_back(1114);
+	t.push_back(3);
+	t.push_back(5);
+	t.push_back(7);
+	t.push_back(9);
+	t.push_back(9);
+	t.push_back(9);
+	t.push_back(9);
+	t.push_back(9);
+	t.push_back(11);
+	int target = 5;
+	int i = ::easyfind(t,target);
+	if (i == -1)
+		std::cout<<"target " << target <<" not found"<<std::endl;
+	else 
+		std::cout<<"target "<<target<<" found at index "<<i<<std::endl;
+
+	target = 66;
+	i = ::easyfind(t,target);
+	if (i == -1)
+		std::cout<<"target " << target <<" not found"<<std::endl;
+	else 
+		std::cout<<"target "<<target<<" found at index "<<i<<std::endl;
+	return (0);
 }

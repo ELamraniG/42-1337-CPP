@@ -25,7 +25,11 @@ int	main(void)
 		++it;
 	}
 	std::stack<int> s(mstack);
-	MutantStack<int> mstack2 = mstack;
+	MutantStack<int> mstack2(mstack);
+	mstack2.push(55);
+	mstack2.push(55);
+	mstack2.push(55);
+	mstack2 = mstack;
 	MutantStack<int>::iterator it2 = mstack2.begin();
 	MutantStack<int>::iterator ite2 = mstack2.end();
 	++it2;
