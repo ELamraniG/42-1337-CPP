@@ -14,7 +14,7 @@ class BitcoinExchange
 	bool validate_files();
 	bool parse_map();
 	bool parse_input();
-	bool validate_dates(std::string s,std::string splitter);
+	bool validate_dates(std::string s);
 	bool validate_format(std::string s,std::string splitter);
 	bool excute_calculations(std::string s,std::string splitter);
 	bool all_numbers_checker(std::string s);

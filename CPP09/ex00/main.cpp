@@ -10,5 +10,4 @@ int main(int ac,char **av)
 	std::string s = av[1];
 	BitcoinExchange f;
 	f.parse_the_bitc();
-	std::cout<<f.map_csv["2009-01-11"]<<"??"<<std::endl;
 }
