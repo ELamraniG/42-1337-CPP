@@ -1,0 +1,17 @@
+step N1 check files and  check first line with == and stop if one of those fail
+step N2 parse .csv and check if everything is correct, and try to implement a func that with small change would be also be able to validate input
+step N3 after getting all the stuff in hashmap key : date , value : exchange rate , read each data if one is wrong in .csv exit the program with error
+//WRONG step N4 parse the input file if any is incorrect store the error in the value , while printing check if the valie isnt digit and if its not dont print the key
+change N4 to parsing the input, if the format or the date are wrong , print invalide format, if the 
+
+
+parse the bitc()
+{
+	here iw ill parse the hashmap for .csv file and store each key and value
+	it will need
+	parse_map
+	
+}
+
+
+change the file names later!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
