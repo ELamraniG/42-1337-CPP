@@ -8,6 +8,6 @@ int main(int ac,char **av)
 		return 0;
 	}
 	std::string s = av[1];
-	BitcoinExchange f;
+	BitcoinExchange f(s);
 	f.parse_the_bitc();
 }

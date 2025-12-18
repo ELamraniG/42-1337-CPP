@@ -155,3 +155,4 @@ Fixed Fixed::operator--(int)
 	this->_fixed_point--;
 	return (f);
 }
+
