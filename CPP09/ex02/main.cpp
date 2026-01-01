@@ -1,19 +1,36 @@
 #include "PmergeMe.hpp"
 
-int main(int ac, char **av)
-{
-	PmergeMe sorting_stuff;
-	if (ac < 2)
-		return std::cerr<<"error"<<std::endl,1;
-	for (int i = 1;i < ac; i++)
-	{
-		std::string tmp = av[i];
-		for(unsigned long i = 0;i < tmp.length();i++)
-		{
-			if (!std::isdigit(tmp[i]))
-				return std::cerr<<"error"<<std::endl,1;
-			sorting_stuff.insert(tmp[i] - '0');
-		}
-	}
-	sorting_stuff.print();
+int main(int argc, char **argv) {
+  try {
+    PmergeMe sorter;
+
+    sorter.parse_input(argc, argv);
+
+    std::vector<int> original = sorter.get_vector();
+    std::cout << "Before: ";
+    for (size_t i = 0; i < original.size(); ++i) {
+      std::cout << original[i];
+      if (i < original.size() - 1)
+        std::cout << " ";
+    }
+    std::cout << std::endl;
+
+    sorter.perform_merge();
+
+    const std::vector<int> &sorted = sorter.get_vector();
+    std::cout << "After:  ";
+    for (size_t i = 0; i < sorted.size(); ++i) {
+      std::cout << sorted[i];
+      if (i < sorted.size() - 1)
+        std::cout << " ";
+    }
+    std::cout << std::endl;
+
+    sorter.display_times();
+
+    return 0;
+  } catch (const std::exception &e) {
+    std::cerr << e.what() << std::endl;
+    return 1;
+  }
 }
