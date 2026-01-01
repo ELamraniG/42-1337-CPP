@@ -131,10 +131,9 @@ void PmergeMe::ford_johnson_vector(std::vector<int> &arr) {
 
   size_t pairCount = n / 2;
   int (*pairs)[2] = new int[pairCount][2];
-  bool hasStraggler = (n % 2 == 1);
-  int straggler = 0;
-  if (hasStraggler)
-    straggler = arr[n - 1];
+  int leftover = -1;
+  if ((n % 2 == 1))
+    leftover = arr[n - 1];
 
   for (size_t i = 0; i + 1 < n; i += 2) {
     if (arr[i] > arr[i + 1]) {
@@ -146,19 +145,17 @@ void PmergeMe::ford_johnson_vector(std::vector<int> &arr) {
     }
   }
 
-  std::vector<int> largerElements;
-  for (size_t i = 0; i < pairCount; ++i)
-    largerElements.push_back(pairs[i][0]);
+  std::vector<int> big_numbers;
+  for (size_t i = 0; i < pairCount; i++)
+    big_numbers.push_back(pairs[i][0]);
 
-  ford_johnson_vector(largerElements);
+  ford_johnson_vector(big_numbers);
 
-  std::vector<int> mainChain;
   std::vector<int> pend;
 
-  for (size_t i = 0; i < largerElements.size(); ++i) {
-    mainChain.push_back(largerElements[i]);
-    for (size_t j = 0; j < pairCount; ++j) {
-      if (pairs[j][0] == largerElements[i]) {
+  for (size_t i = 0; i < big_numbers.size(); i++) {
+    for (size_t j = 0; j < pairCount; j++) {
+      if (pairs[j][0] == big_numbers[i]) {
         pend.push_back(pairs[j][1]);
         pairs[j][0] = -1;
         break;
@@ -168,7 +165,7 @@ void PmergeMe::ford_johnson_vector(std::vector<int> &arr) {
   delete[] pairs;
 
   if (!pend.empty()) {
-    mainChain.insert(mainChain.begin(), pend[0]);
+    big_numbers.insert(big_numbers.begin(), pend[0]);
   }
 
   if (pend.size() > 1) {
@@ -181,15 +178,15 @@ void PmergeMe::ford_johnson_vector(std::vector<int> &arr) {
         continue;
 
       int value = pend[idx];
-      binary_search_insert_vec(mainChain, mainChain.end(), value);
+      binary_search_insert_vec(big_numbers, big_numbers.end(), value);
     }
   }
 
-  if (hasStraggler) {
-    binary_search_insert_vec(mainChain, mainChain.end(), straggler);
+  if (leftover != -1) {
+    binary_search_insert_vec(big_numbers, big_numbers.end(), leftover);
   }
 
-  arr = mainChain;
+  arr = big_numbers;
 }
 
 void PmergeMe::ford_johnson_deque(std::deque<int> &arr) {
@@ -206,11 +203,10 @@ void PmergeMe::ford_johnson_deque(std::deque<int> &arr) {
 
   size_t pairCount = n / 2;
   int (*pairs)[2] = new int[pairCount][2];
-  bool hasStraggler = (n % 2 == 1);
-  int straggler = 0;
+  int leftover = -1;
 
-  if (hasStraggler)
-    straggler = arr[n - 1];
+  if (n % 2 == 1)
+    leftover = arr[n - 1];
 
   for (size_t i = 0; i + 1 < n; i += 2) {
     if (arr[i] > arr[i + 1]) {
@@ -222,19 +218,17 @@ void PmergeMe::ford_johnson_deque(std::deque<int> &arr) {
     }
   }
 
-  std::deque<int> largerElements;
+  std::deque<int> big_numbers;
   for (size_t i = 0; i < pairCount; ++i)
-    largerElements.push_back(pairs[i][0]);
+    big_numbers.push_back(pairs[i][0]);
 
-  ford_johnson_deque(largerElements);
+  ford_johnson_deque(big_numbers);
 
-  std::deque<int> mainChain;
   std::deque<int> pend;
 
-  for (size_t i = 0; i < largerElements.size(); ++i) {
-    mainChain.push_back(largerElements[i]);
+  for (size_t i = 0; i < big_numbers.size(); ++i) {
     for (size_t j = 0; j < pairCount; ++j) {
-      if (pairs[j][0] == largerElements[i]) {
+      if (pairs[j][0] == big_numbers[i]) {
         pend.push_back(pairs[j][1]);
         pairs[j][0] = -1;
         break;
@@ -244,7 +238,7 @@ void PmergeMe::ford_johnson_deque(std::deque<int> &arr) {
   delete[] pairs;
 
   if (!pend.empty()) {
-    mainChain.push_front(pend[0]);
+    big_numbers.push_front(pend[0]);
   }
 
   if (pend.size() > 1) {
@@ -257,15 +251,15 @@ void PmergeMe::ford_johnson_deque(std::deque<int> &arr) {
         continue;
 
       int value = pend[idx];
-      binary_search_insert_deq(mainChain, mainChain.end(), value);
+      binary_search_insert_deq(big_numbers, big_numbers.end(), value);
     }
   }
 
-  if (hasStraggler) {
-    binary_search_insert_deq(mainChain, mainChain.end(), straggler);
+  if (leftover != -1) {
+    binary_search_insert_deq(big_numbers, big_numbers.end(), leftover);
   }
 
-  arr = mainChain;
+  arr = big_numbers;
 }
 
 void PmergeMe::perform_merge() {
@@ -305,11 +299,9 @@ void PmergeMe::display_after() const {
 }
 
 void PmergeMe::display_times() const {
-  std::cout << "time" << input_size
-            << " of vector : " << vector_time << " us"
+  std::cout << "time" << input_size << " of vector : " << vector_time << " us"
             << std::endl;
-  std::cout << "time" << input_size
-            << " of deque  : " << deque_time << " us"
+  std::cout << "time" << input_size << " of deque  : " << deque_time << " us"
             << std::endl;
 }
 
