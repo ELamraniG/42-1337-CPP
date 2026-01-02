@@ -4,7 +4,7 @@ int main(int ac,char **av)
 {
 	if (ac != 2)
 	{
-		std::cout<<"we only accept 1 arg here"<<std::endl;
+		std::cerr << "we only accept 1 arg here" << std::endl;
 		return 0;
 	}
 	std::string s = av[1];

@@ -1,4 +1,4 @@
-NAME = btError
+NAME = btc
 CPP = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC = main.cpp BitcoinExchange.cpp
