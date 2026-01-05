@@ -1,4 +1,5 @@
 #include "BitcoinExchange.hpp"
+#include <cstdlib>
 #include <fstream>
 #include <ostream>
 
@@ -42,7 +43,6 @@ bool BitcoinExchange::validate_format(std::string s, std::string splitter) {
   int after_splitter_pos;
   int is_doted;
 
-  // check size and " | "
   if (splitter == " | ") {
     if (s.length() < 14) {
       return (false);
@@ -52,7 +52,7 @@ bool BitcoinExchange::validate_format(std::string s, std::string splitter) {
       return (false);
     after_splitter_pos = 10 + 3;
   }
-  // check size and ","
+
   if (splitter == ",") {
     if (s.length() < 12)
       return (false);
@@ -136,7 +136,7 @@ bool BitcoinExchange::validate_dates(std::string s) {
     else
       arr[2] = 29;
   }
-  if (year < 2009 || year > 3000 || month < 1 || month > 12)
+  if (year < 0 || year > 3000 || month < 1 || month > 12)
     return (false);
   if (day < 1 || day > arr[month])
     return (false);
@@ -183,14 +183,23 @@ bool BitcoinExchange::parse_input() {
         std::string new_str;
         std::string new_value;
         getline(file_csv, new_str);
-        getline(file_csv, new_str);
         tmp = new_str;
+        int lines_read = 0;
+        bool no_earlier_date = false;
         while (getline(file_csv, new_str)) {
           std::string date2 = new_str.substr(0, 10);
+          if (date2 > date && lines_read == 0) {
+            std::cerr << "Error: no earlier date available." << std::endl;
+            no_earlier_date = true;
+            break;
+          }
           if (date2 > date)
             break;
           tmp = new_str;
+          lines_read++;
         }
+        if (no_earlier_date)
+          continue;
         new_value = tmp.substr(11, s.length() - 1);
         double new_val = std::atof(new_value.c_str());
         double old_val = std::atof(value.c_str());
@@ -213,8 +222,7 @@ bool BitcoinExchange::parse_input() {
 }
 
 std::string BitcoinExchange::get_file_name() const { return input_file_name; }
-std::unordered_map<std::string, std::string>
-BitcoinExchange::get_file_map() const {
+std::map<std::string, std::string> BitcoinExchange::get_file_map() const {
   return map_csv;
 }
 

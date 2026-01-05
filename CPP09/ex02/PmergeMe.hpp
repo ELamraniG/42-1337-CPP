@@ -11,35 +11,33 @@
 
 class PmergeMe {
 private:
-  std::vector<int> vector_list;
-  std::deque<int> deque_list;
-  double vector_time;
-  double deque_time;
-  size_t input_size;
+  std::vector<int> our_vec;
+  std::deque<int> our_deq;
+  double vec_t;
+  double deq_t;
+  size_t size;
 
-  static std::vector<size_t> generate_jacobsthal_sequence(size_t n);
-  static std::vector<size_t> build_jacobsthal_insertion_order(size_t pendSize);
+  std::vector<int> gen_sthal_nums(int n);
+  std::vector<int> do_the_sthal(int pendSize);
 
   void ford_johnson_vector(std::vector<int> &arr);
   void ford_johnson_deque(std::deque<int> &arr);
-  std::vector<int>::iterator
-  binary_search_insert_vec(std::vector<int> &container,
-                           std::vector<int>::iterator end, int value);
-  std::deque<int>::iterator
-  binary_search_insert_deq(std::deque<int> &container,
-                           std::deque<int>::iterator end, int value);
+  void binary_vec(std::vector<int> &container, int value);
+  void binary_deq(std::deque<int> &container, int value);
 
 public:
   PmergeMe();
+  PmergeMe(const std::vector<int> &input);
   PmergeMe(const PmergeMe &other);
   PmergeMe &operator=(const PmergeMe &other);
   ~PmergeMe();
 
-  void parse_input(int argc, char **argv);
-  void perform_merge();
-  void display_before() const;
-  void display_after() const;
-  void display_times() const;
+  void do_ford_johnson();
+  void print_before() const;
+  void print_after() const;
+  void print_times() const;
+  void print_all() const;
+  bool is_sorted() const;
 
   const std::vector<int> &get_vector() const;
   const std::deque<int> &get_deque() const;

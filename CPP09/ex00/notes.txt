@@ -1,2 +1,0 @@
-do lowerbound func and check if it doesnt exit >> print correct error
-dont forget to print in error stderr!!!!!!!!
